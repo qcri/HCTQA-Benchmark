@@ -1,4 +1,6 @@
-# ** Paper: HCT-QA: A Benchmark for Question Answering on Human-Centric Tables**
+Note: This repository is currently being updated.
+
+# Paper: HCT-QA: A Benchmark for Question Answering on Human-Centric Tables
 
 ## **Introduction**
 This repository provides a benchmark for question answering on **Human-Centric Tables (HCTs)**. HCTs are non-relational tables with complex structures, making them difficult to parse and understand. This benchmark enables the evaluation of **large language models (LLMs) and vision-language models (VLMs)** on both real-world and synthetic HCTs.
