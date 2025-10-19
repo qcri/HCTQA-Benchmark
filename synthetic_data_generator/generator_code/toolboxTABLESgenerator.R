@@ -84,16 +84,25 @@ getValuesFromNames <- function(namesAndValues,valKeep,valRemove){
   if (length(nam)>1){
     
     # if names contain numbers, add a character at the end to allow proper clean up
-    for (ii in 1:length(val)){
-      curname = names(val[[ii]])
-      names(val[[ii]]) = paste0(curname,speStr)
+    addSpeStr<- function(listVal){
+      for (ii in 1:length(listVal)){
+        curname = names(listVal[[ii]])
+        names(listVal[[ii]]) = paste0(curname,speStr)
+        if (is.list(listVal[ii][[1]])) listVal[[ii]][[1]] = addSpeStr(listVal[[ii]][[1]])
+      }
+      return(listVal)
     }
+    val <- addSpeStr(val)
     
     # TREE 
-    uval=unlist(val) # it adds numbers at the end of the names to avoid duplicates
+    uval=unlist(val) # unlist automatically adds unwanted numbers at the end of the names to avoid duplicates
+
     # remove numbers after speStr
     cleanuval = gsub(speStr, '',gsub(paste0(speStr,'[[:digit:]]+'), '',names(uval)))
-    cleanvalues = paste0(cleanuval,'.',uval)
+    
+    # add single-dot separator to ease spliting
+    cleanvalues = gsub("\\.\\.","\\.",paste0(cleanuval,'.',uval))
+
     sepvalues = strsplit(cleanvalues,split = "\\.")
     
     Ltmp <- NULL
@@ -316,3 +325,4 @@ getCodesFromName <- function(allSemanticAttributes,attrName){
   for (i in 1:length(attrData)) if (is.element(attrName,unlist(attrData[[i]]$names))) codes <- c(codes,attrData[[i]]$code)
   return(codes)
 }
+
