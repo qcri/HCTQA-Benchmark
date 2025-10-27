@@ -139,7 +139,7 @@ def do_inference(model_t, output_folder, qaps_file, num_gpus=1):
                             "type": "image",
                             "image": f"data:image/jpeg;base64,{base64_image}",
                         },
-                        {"type": "text", "text": f"Answer the following question given the information provided in the image. Do not return any explanation or steps, just return the final answer to the question. Question: {question_t}"},
+                        {"type": "text", "text": f"You are a table question answering assistant. You are given an image of a table and a question. Your task is to answer the question based on the information in the table. The table structure may be complex and not a standard relational table so try to understand the structure of the table when answering the question. If the question cannot be answered using information from the table, return 'No Answer'. Do not provide any explanations, equations, code, or text explaining intermediate steps in figuring out the answer. Return only the final answer itself. If there are multiple values, separate each value with the ' || ' token. Question: {question_t}"},
                     ],
                 }
             ]
@@ -194,7 +194,7 @@ def do_inference(model_t, output_folder, qaps_file, num_gpus=1):
             question_t = qap_info["question"]
 
             ## PROMPTS
-            prompt = f"USER: <|image_1|>\ Answer the following question given the information provided in the image. Do not return any explanation or steps, just return the final answer to the question. Question: {question_t} \nASSISTANT:"
+            prompt = f"USER: <|image_1|>\ You are a table question answering assistant. You are given an image of a table and a question. Your task is to answer the question based on the information in the table. The table structure may be complex and not a standard relational table so try to understand the structure of the table when answering the question. If the question cannot be answered using information from the table, return 'No Answer'. Do not provide any explanations, equations, code, or text explaining intermediate steps in figuring out the answer. Return only the final answer itself. If there are multiple values, separate each value with the ' || ' token. Question: {question_t} \nASSISTANT:"
             
             image = PIL.Image.open(image_path_t)
 
@@ -244,7 +244,7 @@ def do_inference(model_t, output_folder, qaps_file, num_gpus=1):
             messages = [
                 {
                     "role": "user",
-                    "content": [{"type": "text", "text": f"Answer the following question given the information provided in the image. Do not return any explanation or steps, just return the final answer to the question. Question: {question_t}"}, {"type": "image_url", "image_url": {"url": image_source}}]
+                    "content": [{"type": "text", "text": f"You are a table question answering assistant. You are given an image of a table and a question. Your task is to answer the question based on the information in the table. The table structure may be complex and not a standard relational table so try to understand the structure of the table when answering the question. If the question cannot be answered using information from the table, return 'No Answer'. Do not provide any explanations, equations, code, or text explaining intermediate steps in figuring out the answer. Return only the final answer itself. If there are multiple values, separate each value with the ' || ' token. Question: {question_t}"}, {"type": "image_url", "image_url": {"url": image_source}}]
                 },
             ]
 
@@ -288,7 +288,7 @@ def do_inference(model_t, output_folder, qaps_file, num_gpus=1):
             image_path_t = qap_info["image_path"]
             question_t = qap_info["question"]
 
-            prompt = f"USER: <image>\n Answer the following question given the information provided in the image. Do not return any explanation or steps, just return the final answer to the question. Question: {question_t} \nASSISTANT:"
+            prompt = f"USER: <image>\n You are a table question answering assistant. You are given an image of a table and a question. Your task is to answer the question based on the information in the table. The table structure may be complex and not a standard relational table so try to understand the structure of the table when answering the question. If the question cannot be answered using information from the table, return 'No Answer'. Do not provide any explanations, equations, code, or text explaining intermediate steps in figuring out the answer. Return only the final answer itself. If there are multiple values, separate each value with the ' || ' token. Question: {question_t} \nASSISTANT:"
             
             image = PIL.Image.open(image_path_t)
 
@@ -329,19 +329,14 @@ def do_inference(model_t, output_folder, qaps_file, num_gpus=1):
 if __name__ == "__main__":
     
     all_models = [
-        "HuggingFaceM4/Idefics3-8B-Llama3",
         "OpenGVLab/InternVL2_5-8B-MPO",
         "OpenGVLab/InternVL2-4B",
         "llava-hf/llava-1.5-7b-hf",
-        "llava-hf/llava-v1.6-mistral-7b-hf",
         "llava-hf/llava-v1.6-vicuna-7b-hf",
-        "meta-llama/Llama-3.2-11B-Vision-Instruct",
         "allenai/Molmo-7B-D-0924",
-        "google/paligemma2-10b-ft-docci-448",
         "mistralai/Pixtral-12B-2409",
         "microsoft/Phi-3-vision-128k-instruct",
         "microsoft/Phi-3.5-vision-instruct",
-        "Qwen/Qwen2-VL-7B-Instruct"
     ]
 
     parser = argparse.ArgumentParser()

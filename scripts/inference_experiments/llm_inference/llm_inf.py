@@ -11,7 +11,7 @@ dotenv.load_dotenv()
 from huggingface_hub import login
 login(token=os.getenv("HUGGINGFACE_TOKEN"))
 
-def do_llm_inference(model_name_or_path, output_folder = "../../results/model_responses/llms/", data_source_type = "real", split_name = "all", batch_size = 32, num_gpus = 1, use_system_prompt = True):
+def do_llm_inference(model_name_or_path, output_folder = "../../results/model_responses/llms/", data_source_type = "real", split_name = "all", batch_size = 32, num_gpus = 1, use_system_prompt = True, max_model_len = 4000):
     dataset = load_dataset("qcri-ai/HCTQA")
     
     # Convert each split to a pandas DataFrame
@@ -67,9 +67,9 @@ def do_llm_inference(model_name_or_path, output_folder = "../../results/model_re
     # special case for gemma-3
     try:
         if "gemma-3" in model_name:
-            llm_model = LLM(model=model_name, gpu_memory_utilization=0.9, tensor_parallel_size=num_gpus, dtype="bfloat16")
+            llm_model = LLM(model=model_name, gpu_memory_utilization=0.9, tensor_parallel_size=num_gpus, dtype="bfloat16", max_model_len=max_model_len)
         else:
-            llm_model = LLM(model=model_name, gpu_memory_utilization=0.9, tensor_parallel_size=num_gpus)
+            llm_model = LLM(model=model_name, gpu_memory_utilization=0.9, tensor_parallel_size=num_gpus, max_model_len=max_model_len)
     except Exception as e:
         raise RuntimeError(f"Failed to initialize model using VLLM (ensure enough GPU RAM and it is a VLLM supported model): {e}")
 
@@ -109,30 +109,36 @@ def do_llm_inference(model_name_or_path, output_folder = "../../results/model_re
     return True
 
 if __name__ == "__main__":
-
-    models_for_exps = [
-        # Small Models - run with 2 A100's
-        "Qwen/Qwen1.5-7B-Chat",
-        "Qwen/Qwen2-7B-Instruct",
-        "Qwen/Qwen2.5-7B-Instruct",
-        "CohereLabs/aya-23-8B", 
-        "mistralai/Mathstral-7B-v0.1",
-        "mistralai/Mistral-7B-Instruct-v0.3",
-        "meta-llama/Meta-Llama-3-8B-Instruct",
-        "meta-llama/Llama-3.1-8B-Instruct",
-        "google/gemma-7b-it",
-        "google/gemma-2-9b-it",
-        "google/gemma-3-12b-it",
-        "microsoft/Phi-3.5-mini-instruct",
-        "microsoft/Phi-4-mini-reasoning",
-        # Medium Models - run with 4 A100's
-        "mistralai/Mixtral-8x7B-Instruct-v0.1", 
-        "meta-llama/Llama-3.1-70B-Instruct", 
-        "meta-llama/Llama-3.3-70B-Instruct", 
-        "google/gemma-2-27b-it", 
-        "google/gemma-3-27b-it", 
-        "Qwen/Qwen2.5-72B-Instruct"
-    ] 
+    models_for_exps = {
+        # Qwen
+        "Qwen/Qwen1.5-7B-Chat" : 32768,
+        "Qwen/Qwen2-7B-Instruct" : 32768,
+        "Qwen/Qwen2.5-7B-Instruct" : 32768,
+        "Qwen/Qwen2.5-72B-Instruct" : 32000,
+        "Qwen/Qwen3-14B" : 32768,
+        "Qwen/Qwen3-32B" : 32000, 
+        # Llama
+        "meta-llama/Meta-Llama-3-8B-Instruct" : 8000,
+        "meta-llama/Llama-3.1-8B-Instruct" : 16000,
+        "meta-llama/Llama-3.1-70B-Instruct" : 32000,
+        "meta-llama/Llama-3.3-70B-Instruct" :  32000, 
+        # # Gemma
+        "google/gemma-2-9b-it" : 8192,
+        "google/gemma-3-12b-it" : 32768,
+        "google/gemma-2-27b-it" : 8000, 
+        "google/gemma-3-27b-it" : 32000,
+        # Mistal
+        "mistralai/Mistral-7B-Instruct-v0.1" : 32768,
+        "mistralai/Mistral-7B-Instruct-v0.2" : 32768,
+        "mistralai/Mistral-7B-Instruct-v0.3" : 32768,
+        "mistralai/Mathstral-7B-v0.1" : 32768,
+        # Phi
+        "microsoft/Phi-3-mini-4k-instruct" : 4096,
+        "microsoft/Phi-3.5-vision-instruct" : 65536,
+        "microsoft/Phi-4-mini-instruct" : 65536,
+        # Misc
+        "QCRI/Fanar-1-9B-Instruct" : 4096,
+    }
 
     # Parse command line arguments
     parser = argparse.ArgumentParser(description="Run LLM inference on HCT-QA dataset.")
@@ -148,10 +154,14 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     if args.model_name_or_path == "all":
-        for model_name in models_for_exps:
-            do_llm_inference(model_name, args.output_folder, args.data_source_type, args.split_name, args.batch_size, args.num_gpus, args.use_system_prompt)
+        for model_name, max_model_len in models_for_exps.items():
+            do_llm_inference(model_name, args.output_folder, args.data_source_type, args.split_name, args.batch_size, args.num_gpus, args.use_system_prompt, max_model_len)
     else:
-        do_llm_inference(args.model_name_or_path, args.output_folder, args.data_source_type, args.split_name, args.batch_size, args.num_gpus, args.use_system_prompt)
+        if args.model_name_or_path not in models_for_exps:
+            print(f"Model {args.model_name_or_path} not found in predefined models. Please provide a valid model name.")
+            raise ValueError(f"Model {args.model_name_or_path} not found in predefined models.")
+        max_model_len = models_for_exps.get(args.model_name_or_path, 4000)
+        do_llm_inference(args.model_name_or_path, args.output_folder, args.data_source_type, args.split_name, args.batch_size, args.num_gpus, args.use_system_prompt, max_model_len)
 
     
 

@@ -3,6 +3,10 @@ import re, os
 import argparse
 import pandas as pd
 
+import json
+import re, os
+import pandas as pd
+
 ##########################
 ######### HELPER FUNCTIONS
 ##########################
@@ -24,106 +28,116 @@ def clean_gt_val(ground_truth_t):
 
     return ground_truth
 
-def post_process_response(response: str) -> str:
+import re
 
+def split_label_number_for_gpt(text: str):
+    """
+    Split only if:
+      - The substring before ':' ends with an alphabetic word (A–Z/a–z only)
+      - There is at least one whitespace after ':'
+      - Followed by a valid int/float (optional '-')
+    Otherwise return [text].
+    """
+    text = text.strip()
+    m = re.match(r"^([A-Za-z][A-Za-z\s]*[A-Za-z])\s*:\s+(-?\d+(?:\.\d+)?)$", text)
+    if m:
+        return [m.group(1).strip(), m.group(2).strip()]
+    return [text]
+
+def post_process_response(response: str, mode = None) -> str:
     response = response.lower().strip()
     
-    # Define the regex pattern to match any of the junk tokens
+    # Define junk tokens
     junk_tokens = r"(?:<eos_token>|#input|# input|# solution:|#solution|# explanation:|#explanation|note:|table:)"
-    
-    # Find the position of the first junk token
     match = re.search(junk_tokens, response)
+
+    # Remove "answer=", "answer:", "answer is"
+    response = re.sub(r'answer\s*[:=]\s*', '', response, flags=re.IGNORECASE)
     
-    # If a junk token is found, truncate the response before it
+    # Truncate before junk tokens
     if match:
         response = response[:match.start()]
-    
-    ### Check for double new line (we see this trend quite often before models start yapping)
+
+    # Handle newline splits
     response = response.split("\n\n")[0]
-    reponse = response.split("\n```\n")[0]
+    response = response.split("\n```\n")[0]
 
-    # Remove '`' characters
-    response = response.replace("`", "").replace("\n","")
+    # Remove backticks and newlines
+    response = response.replace("`", "").replace("\n", "")
 
-    # Replace "," in numbers with "" (example: 1,000 -> 1000 & 1,232.23 -> 1232.23 & |1,000,000 -> |1000000)
-    for i in range(5):
+    # Remove commas in numbers (1,000 -> 1000)
+    for _ in range(5):
         response = re.sub(r'(\d+),(\d+)', r'\1\2', response)
-    
-    # Remove trailing .0, .00, .000, etc.
+
+    # Also remove stray commas (e.g., "6249," or ",6249")
+    response = re.sub(r'(^,|,$)', '', response.strip())
+
+    # Remove trailing .0, .00, etc.
     response = re.sub(r'(\d+)\.0+\b', r'\1', response)
     response = re.sub(r'(\d*\.\d*?[1-9])0+\b', r'\1', response)
 
-    return [x.strip() for x in response.lower().strip().split("||")]
+    response = [x.strip() for x in response.lower().strip().split("||")]
 
-def post_process_response_vision_models_only(response: str) -> str:
-
-    response = response.lower().strip()
+    if mode == "gpt":
+        final_response = []
+        for resp in response:
+            split_resp = split_label_number_for_gpt(resp)
+            final_response.extend(split_resp)
+        return final_response
     
-    # Define the regex pattern to match any of the junk tokens
-    junk_tokens = r"(?:<eos_token>|#input|# input|# solution:|#solution|# explanation:|#explanation|note:|table:)"
+    elif mode == "hitab":
+        # remove "%" from each response
+        final_response = []
+        for resp in response:
+            resp = resp.replace("%", "").strip()
+            final_response.append(resp)
+        return final_response
+    else:
+        return response
     
-    # Find the position of the first junk token
-    match = re.search(junk_tokens, response)
-    
-    # If a junk token is found, truncate the response before it
-    if match:
-        response = response[:match.start()]
-    
-    ### Check for double new line (we see this trend quite often before models start yapping)
-    response = response.split("\n\n")[0]
-    reponse = response.split("\n```\n")[0]
+def get_prec_rec_f1_cc(results, mode = None):
 
-    # Remove '`' characters
-    response = response.replace("`", "").replace("\n","")
-
-    # Replace "," in numbers with "" (example: 1,000 -> 1000 & 1,232.23 -> 1232.23 & |1,000,000 -> |1000000)
-    for i in range(5):
-        response = re.sub(r'(\d+),(\d+)', r'\1\2', response)
-
-    # Remove trailing .0, .00, .000, etc.
-    response = re.sub(r'(\d+)\.0+\b', r'\1', response)
-    response = re.sub(r'(\d*\.\d*?[1-9])0+\b', r'\1', response)
-    
-    return response.lower().strip()
-
-def post_process_response_format_variation(response: str) -> str:
-
-    response = response.lower().strip()
-    
-    # Define the regex pattern to match any of the junk tokens
-    junk_tokens = r"(?:<eos_token>|#input|# input|# solution:|#solution|# explanation:|#explanation|note:|table:)"
-    
-    # Find the position of the first junk token
-    match = re.search(junk_tokens, response)
-    
-    # If a junk token is found, truncate the response before it
-    if match:
-        response = response[:match.start()]
-    
-    ### Check for double new line (we see this trend quite often before models start yapping)
-    response = response.split("\n\n")[0]
-    reponse = response.split("\n```\n")[0]
-
-    # Remove '`' characters
-    response = response.replace("`", "").replace("\n","")
-
-    # Replace "," in numbers with "" (example: 1,000 -> 1000 & 1,232.23 -> 1232.23 & |1,000,000 -> |1000000)
-    for i in range(5):
-        response = re.sub(r'(\d+),(\d+)', r'\1\2', response)
-
-    values = [x.strip() for x in response.lower().strip().split("||")]
-    new_values = []
-    for value in values:
-        # Remove trailing .0, .00, .000, etc.
-        new_value = re.sub(r'(\d+)\.0+\b', r'\1', value)
-        new_value = re.sub(r'(\d*\.\d*?[1-9])0+\b', r'\1', new_value)
-        new_values.append(new_value)
+    cleaned_responses = []
+    cleaned_gts = []
+    for x in results:
+        og_output = x.get('output', x.get('response', ''))
+        og_gt = x.get('gt', x.get('ground_truth', ''))
+        if og_output is None or og_output.lower().strip().startswith("no answer") or og_output.lower().strip().startswith("error"):
+            continue
         
-    return new_values
-    
-def get_prec_rec_f1_cc(results):
-    cleaned_gts = [clean_gt_val(x['gt']) for x in results]
-    cleaned_responses = [post_process_response(x['response']) for x in results]
+        gt_clean = clean_gt_val(og_gt)
+        resp_clean = post_process_response(og_output, mode=mode)
+        if mode == "hitab":
+            if (
+                len(gt_clean) == 1 and len(resp_clean) == 1
+                and re.fullmatch(r'-?\d+(\.\d+)?', gt_clean[0])
+                and re.fullmatch(r'-?\d+(\.\d+)?', resp_clean[0])
+            ):
+                gt_val = gt_clean[0].strip()
+                resp_val = resp_clean[0].strip()
+                gt_neg = gt_val.startswith('-')
+                resp_neg = resp_val.startswith('-')
+
+                # (A) Fix sign mismatch
+                if gt_neg != resp_neg:
+                    if gt_neg:
+                        gt_clean[0] = gt_val.lstrip('-')
+                    else:
+                        resp_clean[0] = resp_val.lstrip('-')
+
+                # (B) Fix percentage mismatch (0.x vs integer)
+                try:
+                    gt_f, resp_f = float(gt_clean[0]), float(resp_clean[0])
+                    if (0 < gt_f < 1 and resp_f >= 1) or (0 < resp_f < 1 and gt_f >= 1):
+                        if 0 < gt_f < 1:
+                            gt_clean[0] = str(round(gt_f * 100, 6)).rstrip('0').rstrip('.')
+                        else:
+                            resp_clean[0] = str(round(resp_f * 100, 6)).rstrip('0').rstrip('.')
+                except ValueError:
+                    pass
+
+        cleaned_gts.append(gt_clean)
+        cleaned_responses.append(resp_clean)
 
     # For each response and GT pair calculate precision and recall
     def calculate_precision_recall(gt, response):
@@ -160,14 +174,13 @@ def get_prec_rec_f1_cc(results):
             cc_list.append(0)
     
     # Calculate average precision, recall, F1 and cc score
-    avg_precision = sum(precision_list) / len(precision_list)
-    avg_recall = sum(recall_list) / len(recall_list)
-    avg_f1 = sum(f1_list) / len(f1_list)
-    avg_cc = sum(cc_list) / len(cc_list)
+    avg_precision = sum(precision_list) / max(len(precision_list), 1)
+    avg_recall = sum(recall_list) / max(len(recall_list), 1)
+    avg_f1 = sum(f1_list) / max(len(f1_list), 1)
+    avg_cc = sum(cc_list) / max(len(cc_list), 1)
 
     return avg_precision, avg_recall, avg_f1, avg_cc
-
-
+    
 def results_to_per_dataset_results(results):
     # Create a dictionary to hold the results for each dataset
     dataset_results = {}
@@ -182,127 +195,26 @@ def results_to_per_dataset_results(results):
     return dataset_results
 
 
-def get_rec_cc_vision(results):
-    
-    # For each response and GT pair calculate precision and recall
-    def calculate_recall(gt, response):
-        gt_set = set(gt)
-        # Calculate precision and recall
-        recall = sum(1 for x in gt_set if x in response) / max(len(gt_set), 1)
-        return recall
-    
-    # Calculate Recall and CC score for each response
-    cleaned_gts = [x['gt'] for x in results]
-    cleaned_responses = [post_process_response_vision_models_only(x['response']) for x in results]
-    
-    recall_list = []
-    cc_list = []
-
-    for i in range(len(results)):
-        recall = calculate_recall(cleaned_gts[i], cleaned_responses[i])
-        recall_list.append(recall)
-        if recall == 1:
-            cc_list.append(1)
-        else:
-            cc_list.append(0)
-    
-    # Calculate average precision, recall, F1 and cc score
-    avg_recall = sum(recall_list) / len(recall_list)
-    avg_cc = sum(cc_list) / len(cc_list)
-
-    return avg_recall, avg_cc
-
-def results_to_per_dataset_results_vision(results):
-    # Create a dictionary to hold the results for each dataset
-    dataset_results = {}
-    # Iterate through the results and group them by dataset
-    for result in results:
-        dataset = result['id'].split("--")[0]
-        if dataset not in dataset_results:
-            dataset_results[dataset] = [result]
-        else:
-            dataset_results[dataset].append(result)
-    return dataset_results
-
-def get_recall_cc_vision_results(fname):
-    all_results = {}
-    ### Load File 
-    with open(fname) as f:
-        lines = f.readlines()
-        lines = [json.loads(x) for x in lines]
-
-    ### Reference GTs
-    with open("./helper_for_vision_scoring.json") as f:
-        helper_lines = json.load(f)
-
-    ids_to_gts = {x["id"]: clean_gt_val(x['gt']) for x in helper_lines}
-
-    # Do this filtering because these results include ones with bad ground truths and bad questions as well
-    final_lines = []
-    for line in lines:
-        try:
-            line["gt"] = ids_to_gts[line["id"]]
-            final_lines.append(line)
-        except:
-            continue
-    
-    all_recall, all_cc = get_rec_cc_vision(final_lines)
-    all_results["ALL"] = {}
-    all_results["ALL"]["recall"] = all_recall
-    all_results["ALL"]["cc"] = all_cc
-
-    per_data_lines = results_to_per_dataset_results_vision(final_lines)
-
-    for dataset, lines in per_data_lines.items():
-        dataset_recall, dataset_cc = get_rec_cc_vision(lines)
-        all_results[dataset] = {}
-        all_results[dataset]["recall"] = dataset_recall
-        all_results[dataset]["cc"] = dataset_cc
-
-    return all_results
-
-
 ############################
 ######### MAIN SCORING FUNCS
 ############################
 
-def score_vision_only_results(folder_name, output_file, print_results=False):
+def score_results_main(folder_name, output_file, print_results=False):
     output_string = ""
 
     for fname in os.listdir(folder_name):
-        if "vision" not in fname:
-            continue
-        full_fname = os.path.join(folder_name, fname)
-        all_results = get_recall_cc_vision_results(full_fname)
-
-        for dataset, results in all_results.items():
-            model_name = fname.split("--")[0]
-            output_string += f"Model: {model_name} on {dataset}\n"
-            output_string += f"Mean Recall: {results['recall']:.4f}\n"
-            output_string += f"Mean CC Score: {results['cc']:.4f}\n"
-            output_string += "*" * 50
-        
-    with open(output_file, "w") as f:
-        f.write(output_string)
-
-    if print_results:
-        print(output_string)
-
-    print(f"Results saved to {output_file}")
-    return
-
-def score_realHCT_text_only_results(folder_name, output_file, print_results=False):
-    output_string = ""
-
-    for fname in os.listdir(folder_name):
-        if "real"  not in fname:
-            continue
         with open(os.path.join(folder_name, fname)) as f:
             results = json.load(f)
 
         model_name = fname.split("--")[0]
         data_mode = fname.split("--")[1]
-        mean_precision, mean_recall, mean_f1, mean_cc = get_prec_rec_f1_cc(results)
+        if "gpt" in model_name.lower():
+            mode = "gpt"
+        elif "hitab" in model_name.lower():
+            mode = "hitab"
+        else:
+            mode = None
+        mean_precision, mean_recall, mean_f1, mean_cc = get_prec_rec_f1_cc(results, mode=mode)
 
         output_string += f"Model: {model_name} on {data_mode} on dataset ALL\n"
         output_string += f"Mean Precision: {mean_precision:.4f}\n"
@@ -332,42 +244,8 @@ def score_realHCT_text_only_results(folder_name, output_file, print_results=Fals
         print(output_string)
 
     print(f"Results saved to {output_file}")
-    return
-
-
-def score_syntheticHCT_text_only_results(folder_name, output_file, print_results=False):
-    output_string = ""
-
-    for fname in os.listdir(folder_name):
-        if "synthetic" not in fname:
-            continue
-        output_string += f"{fname}\n"
-        try:
-            with open(os.path.join(folder_name, fname)) as f:
-                results = json.load(f)
-            model_name = fname.split("--")[0]
-            data_mode = fname.split("--")[1]
-            mean_precision, mean_recall, mean_f1, mean_cc = get_prec_rec_f1_cc(results)
-
-            output_string += f"Model: {model_name} on {data_mode}\n"
-            output_string += f"Mean Precision: {mean_precision:.4f}\n"
-            output_string += f"Mean Recall: {mean_recall:.4f}\n"
-            output_string += f"Mean F1 Score: {mean_f1:.4f}\n"
-            output_string += f"Mean CC Score: {mean_cc:.4f}\n"
-            output_string += "*" * 50
-
-        except Exception as e:
-            output_string += "Error\n"
-            output_string += "*" * 50
-
-    with open(output_file, "w") as f:
-        f.write(output_string)
-
-    if print_results:
-        print(output_string)
-
-    print(f"Results saved to {output_file}")
-    return
+    
+    return True
 
 ############ MAIN
 
@@ -376,23 +254,17 @@ if __name__ == "__main__":
     parser.add_argument("--folder_name", type=str, required=True, help="Folder containing the model response files")
     parser.add_argument("--output_file", type=str, required=True, help="Output file to save the results")
     parser.add_argument("--print_results", action="store_true", help="Print results to console")
-    parser.add_argument("--mode", type=str, required=True, choices=["vision", "real", "synthetic"], help="Mode to run the scoring for")
     args = parser.parse_args()
     folder_name = args.folder_name
     output_file = args.output_file
     print_results = args.print_results
-    mode = args.mode
-    if mode == "vision":
-        score_vision_only_results(folder_name, output_file, print_results)
-    elif mode == "real":
-        score_realHCT_text_only_results(folder_name, output_file, print_results)
-    elif mode == "synthetic":
-        score_syntheticHCT_text_only_results(folder_name, output_file, print_results)
-    else:
-        raise ValueError("Invalid mode. Choose from 'vision', 'real', or 'synthetic'.")
+
+    try:
+        score_results_main(folder_name, output_file, print_results)
+    except ValueError as e:
+        print(f"Error during scoring: {e}")
     print(f"Results saved to {output_file}")
-    return
 
 # Example usage:
-# python score_responses.py --folder_name /path/to/folder --output_file /path/to/output.txt --print_results --mode vision
+# python score_responses.py --folder_name /path/to/folder --output_file /path/to/output.txt --print_results
 
