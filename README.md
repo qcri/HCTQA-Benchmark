@@ -61,6 +61,12 @@ Details of the benchmark methodology and dataset can be found in our upcoming pa
 
 ## **Data Components**
 
+This is the first thing you should run as this will uncompress all the necessary folders and files and prepare it for the scripts
+```setup
+chmod +x ./format_files.sh
+./format_files.sh
+```
+
 ### **Real-World Data Processing** (`datasets/`)
 - **`qaps/`**: Contains question-answer pairs.
 - **`tables/`**: HCTs provided as **compressed** `.gz` files (CSV and images).
@@ -78,12 +84,6 @@ The `gt` attribute in the prompts and qaps files present the answer in the follo
 - Aggregations are put in `{}` and multiple distinct aggregations are separated by `||`
 
 This format allows for more detailed evaluation of the models.
-
-To extract the table CSVs and Images run:
-```setup
-chmod +x ./format_files.sh
-./format_files.sh
-```
 
 ### **Synthetic Data Generation** (`synthetic_data_generator/`)
 This module allows users to generate synthetic HCTs with different styles and properties for experimentation.
