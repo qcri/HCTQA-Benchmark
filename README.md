@@ -16,34 +16,46 @@ Details of the benchmark methodology and dataset can be found in our upcoming pa
 
 ## **Repository Structure**
 
+## 📁 Repository Structure
+
 ```
-├── datasets/realWorld_datasets/ # Real-world dataset
-│   ├── qaps/                    # Question-answer pairs
-│   ├── prompts/                           # Prompts used in experiments
-│   ├── tables/                            # HCT images and CSVs (compressed as .gz files)
+├── datasets/                                  # All benchmark data
+│   ├── realWorld_datasets/                    # Real-world HCT dataset
+│   │   ├── prompts/                           
+│   │   ├── qaps/                              # Question–answer pairs (real-world)
+│   │   └── tables/                            # Compressed HCT tables (images, CSVs, HTMLs, MDs)
+│   └── synthetic_datasets/                    # Synthetic HCT datasets
+│       ├── original/                          # Original synthetic tables (CSV, HTML, MD)
+│       └── text_obfuscated/                   # Synthetic tables with obfuscated text content (CSV, HTML, MD)
 │
-├── synthetic_data_generator/                # Synthetic HCT generation (has its own README)
-│   ├── ...                                  # Scripts (in R) needed to run synthetic generator
-│   ├── README_SYNTHETIC_GENERATOR.md
+├── synthetic_data_generator/                  # Synthetic HCT data generation system
+│   ├── generator_code/                        # R scripts for table and QA synthesis
+│   ├── prompts/                               # Synthetic prompts used for text-based generation
+│   ├── synthetic_data_per_semantic_template/  # Example generated synthetic tables (zipped)
+│   ├── HCTexample.png                         # Example table visualization
+│   └── README_SYNTHETIC_GENERATOR.md          # Detailed guide for running the generator
 │
-├── scripts/                                 # All scripts
-│   ├── inference_experiments/               # Runs inference experiments from paper
-│   │   ├── llm_inference/
-│   │   ├── vlm_inference/
-│   ├── score_model_responses/               # Runs inference with VLMs
-│   │   ├── score_responses.py               # Script to score all model responses (llm + vlm)
-│   ├── finetuning/                          # Skeleton folder to set up LLAMA-FACTORY in
-│   │   ├── datatset_prep_for_llama_factory/
-│   │   ├── config_yamls/
+├── scripts/                                   # Code used for experiments and model evaluation
+│   ├── inference_experiments/                 # Inference pipelines for LLMs and VLMs
+│   │   ├── llm_inference/                     # Runs table QA with text-only models
+│   │   └── vlm_inference/                     # Runs table QA with vision–language models
+│   ├── score_model_responses/                 # Scoring and evaluation utilities
+│   │   ├── helper_for_vision_scoring.json     # Helper config for VLM scoring
+│   │   └── score_responses.py                 # Scores model responses (LLM + VLM)
+│   └── finetuning/                            # Configuration for fine-tuning experiments
+│       ├── config_yamls/                      # YAMLs for LLAMA-Factory fine-tuning runs
+│       └── datatset_prep_for_llama_factory/   # Converts HCT-QA data into Alpaca-style JSON
 │
-├── results/                                 # Example model responses (subset only)
-│   ├── model_responses/
-│   ├── scores/
+├── results/                                   # Example model outputs and evaluation scores
+│   ├── model_responses/                       # Sample LLM/VLM response files
+│   ├── model_responses_for_experiments_in_paper/ # Model responses files used in paper's experiments
+│   └── scores/                                # Example evaluation score files
 │
-├── requirements.txt                         # Dependencies for the benchmark
-├── format_files.sh                          # Script to prepare and uncompress data
-└── README.md                                # This README file
+├── format_files.sh                            # Script to uncompress and organize all datasets
+├── requirements.txt                           # Dependencies for running benchmarks and scripts
+└── README.md                                  # Main documentation file
 ```
+
 
 ---
 
