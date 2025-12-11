@@ -1,0 +1,261 @@
+db_name,natural_language,sql_query
+college_2,"Which instructors from the Cybernetics department have a salary greater than 80,000?",SELECT name FROM instructor WHERE dept_name = 'Cybernetics' AND salary > 80000;
+college_2,What are the course IDs and titles of courses in the Mechanical Engineering department that have 3 credits?,"SELECT course_id, title FROM course WHERE credits = 3 AND dept_name = 'Mech. Eng.';"
+mountain_photos,What are the names and heights of mountains located in Ethiopia?,"SELECT name, Height FROM mountain WHERE Country = 'Ethiopia';"
+mountain_photos,What are the brands and names of camera lenses with a maximum aperture of less than 2.8?,"SELECT brand, name FROM camera_lens WHERE max_aperture < 2.8;"
+hr_1,Which countries are located in the region with the ID of 1?,SELECT COUNTRY_NAME FROM countries WHERE REGION_ID = 1;
+hr_1,"Which employees have a salary greater than 17,000?","SELECT FIRST_NAME, LAST_NAME FROM employees WHERE SALARY > 17000;"
+hospital_1,Who are the physicians with the position of Surgical Attending Physician?,SELECT Name FROM Physician WHERE Position = 'Surgical Attending Physician';
+hospital_1,Which departments have a primary affiliation according to the given data?,SELECT Department.Name FROM Department JOIN Affiliated_With ON Department.DepartmentID = Affiliated_With.Department WHERE Affiliated_With.PrimaryAffiliation = 1;
+store_1,What is the name of the artist with the ID of 1?,SELECT name FROM artists WHERE id = 1;
+store_1,What are the titles of the albums by the artist with ID 2?,SELECT title FROM albums WHERE artist_id = 2;
+medicine_enzyme_interaction,"Which medicines are FDA approved, and what are their trade names?",SELECT * FROM medicine WHERE FDA_approved = 'Yes';
+medicine_enzyme_interaction,"What is the location of the enzyme named ""ALA synthase"" on chromosome 3p21.1?","SELECT name, Location FROM enzyme WHERE Chromosome = '3p21.1';"
+storm_record,What are the details of storms with a maximum speed greater than 100?,SELECT * FROM storm WHERE Max_speed > 100;
+storm_record,What are the names and the damage in millions of USD for storms that resulted in more than 50 deaths?,"SELECT Name, Damage_millions_USD FROM storm WHERE Number_Deaths > 50;"
+club_1,What are the first and last names of students who have a major with the code '600'?,"SELECT Fname, LName FROM Student WHERE Major = '600';"
+club_1,What are the names of the clubs located in AKW?,SELECT ClubName FROM Club WHERE ClubLocation = 'AKW';
+protein_institute,What are the names and heights in feet of buildings that have more than 10 floors?,"SELECT Name, Height_feet FROM building WHERE Floors > 10;"
+protein_institute,"What is the enrollment number for Dakota State University, a public institution with more than 2000 students?","SELECT Institution, Enrollment FROM Institution WHERE Type = 'Public' AND Enrollment > 2000;"
+loan_1,What are the names and cities of banks located in the state of New York?,"SELECT bname, city FROM bank WHERE state = 'New York';"
+insurance_fnol,Which customer has a policy with the Policy ID 257?,SELECT Customer_name FROM Customers WHERE Customer_ID IN (SELECT Customer_ID FROM Customers_Policies WHERE Policy_ID = 257);
+insurance_fnol,What is the service name associated with the first notification of loss ID 532?,SELECT Service_name FROM Services WHERE Service_ID IN (SELECT Service_ID FROM First_Notification_of_Loss WHERE FNOL_ID = 532);
+company_employee,What are the names and nationalities of people who are older than 30?,"SELECT Name, Nationality FROM people WHERE Age > 30;"
+company_employee,What are the names and market values in billion dollars of companies in the conglomerate industry?,"SELECT Name, Market_Value_in_Billion FROM company WHERE Industry = 'Conglomerate';"
+company_1,Which employees are working on the project named 'ProductX'?,"SELECT Fname, Lname FROM employee WHERE Ssn IN (SELECT Essn FROM works_on WHERE Pno = (SELECT Pnumber FROM project WHERE Pname = 'ProductX'));"
+company_1,Which department is associated with the project named 'ProductY'?,SELECT Dname FROM department WHERE Dnumber = (SELECT Dnum FROM project WHERE Pname = 'ProductY');
+icfp_1,Which institutions are located in the USA according to the given data?,"SELECT name, country FROM Inst WHERE country = 'USA';"
+icfp_1,What is the title of the paper with the paperID 200?,SELECT title FROM Papers WHERE paperID = 200;
+game_1,What are the details of students who have a major code of 600?,SELECT * FROM Student WHERE Major = 600;
+game_1,What is the name of a video game that is classified as a role-playing game?,SELECT GName FROM Video_Games WHERE GType = 'Role-playing game';
+city_record,"Which cities with a regional population greater than 1,000,000 have the highest GDP, and what are their GDP values?","SELECT City, GDP FROM city WHERE Regional_Population > 1000000 ORDER BY GDP DESC;"
+city_record,What was the date and venue of the match in the 1994 FIFA World Cup qualification where the result was 5-0?,"SELECT Date, Venue, Result FROM match WHERE Competition = '1994 FIFA World Cup qualification' AND Result = '5-0';"
+local_govt_in_alabama,What is the Service ID for the service with the Service Type Code 'Marriage'?,SELECT * FROM Services WHERE Service_Type_Code = 'Marriage';
+local_govt_in_alabama,What are the event details for the service with ID 8?,SELECT Event_Details FROM Events WHERE Service_ID = 8;
+soccer_1,Which players have an overall rating greater than 85?,"SELECT player_name, overall_rating FROM Player INNER JOIN Player_Attributes ON Player.player_api_id = Player_Attributes.player_api_id WHERE overall_rating > 85;"
+soccer_1,What is the name of the league in the country with ID 1?,SELECT name FROM League WHERE country_id = 1;
+scientist_1,What is the name of the scientist with the SSN '123234877'?,SELECT Name FROM Scientists WHERE SSN = '123234877';
+scientist_1,What are the codes and names of projects that required more than 100 hours?,"SELECT Code, Name FROM Projects WHERE Hours > 100;"
+wta_1,What are the first and last names of players from the USA?,"SELECT first_name, last_name FROM players WHERE country_code = 'USA';"
+wta_1,"What were the results of the tennis matches played on a hard surface in 2013, including the winner, loser, and score?","SELECT winner_name, loser_name, score FROM matches WHERE surface = 'Hard' AND year = 2013;"
+solvency_ii,What are the names and prices of the products that are classified as books?,"SELECT Product_Name, Product_Price FROM Products WHERE Product_Type_Code = 'Books';"
+solvency_ii,"What are the Event_ID, Address_ID, and Channel_ID for events with the Event_Type_Code 'Press Conferenc'?","SELECT Event_ID, Address_ID, Channel_ID FROM Events WHERE Event_Type_Code = 'Press Conferenc';"
+machine_repair,"What are the details of the repairs with a launch date after January 1, 2023?",SELECT * FROM repair WHERE Launch_Date > '2023-01-01';
+machine_repair,"Which technicians are older than 30, and what teams do they belong to?","SELECT Name, Team FROM technician WHERE Age > 30;"
+cre_Drama_Workshop_Groups,What is the email address of the customer named Robert who lives in the city of Feliciaberg?,"SELECT Customer_Name, Customer_Email_Address FROM Customers WHERE Address_ID IN (SELECT Address_ID FROM Addresses WHERE City_Town = 'Feliciaberg')"
+cre_Drama_Workshop_Groups,What are the names and prices of products that cost more than 100?,"SELECT Product_Name, Product_Price FROM Products WHERE Product_Price > 100;"
+store_product,What are the products with a DPI greater than 300 and a maximum page size of A4?,"SELECT product_id, product FROM product WHERE dpi > 300 AND max_page_size = 'A4';"
+store_product,Which stores have a ranking less than 5 and an area size greater than 7.23?,SELECT Store_Name FROM store WHERE Ranking < 5 AND Area_size > 7.23;
+sakila_1,What are the titles of films released in 2006 that have a rental rate greater than $2.99?,"SELECT title, release_year FROM film WHERE rental_rate > 2.99;"
+railway,What are the details of the railway located in York?,SELECT * FROM railway WHERE Location = 'York';
+railway,What are the names and ages of managers at level 5 from the United States?,"SELECT Name, Age FROM manager WHERE Country = 'United States' AND Level = 5;"
+school_bus,What are the names and home cities of drivers who are older than 30?,"SELECT Name, Home_city FROM driver WHERE Age > 30;"
+school_bus,What are the names and locations of public schools?,"SELECT School, Location FROM school WHERE Type = 'Public';"
+driving_school,"Which staff members have left, as indicated by their first and last names?","SELECT first_name, last_name FROM Staff WHERE date_left_staff IS NOT NULL;"
+driving_school,What are the email addresses and phone numbers of customers who have an outstanding amount greater than 1000?,"SELECT email_address, phone_number FROM Customers WHERE amount_outstanding > 1000;"
+car_1,What are the names of the countries located on the continent with the code '2'?,SELECT CountryName FROM countries WHERE Continent = '2';
+car_1,Which car makers are from the country with the code '2'?,SELECT Maker FROM car_makers WHERE Country = '2';
+cre_Doc_Control_Systems,What is the document type description for the document type code 'CD'?,SELECT document_type_description FROM Ref_Document_Types WHERE document_type_code = 'CD';
+cre_Doc_Control_Systems,Which employees have the role code 'ED'?,SELECT employee_name FROM Employees WHERE role_code = 'ED';
+program_share,"What is the origin of the program named ""Aniworld"" owned by Hunan Broadcasting System (HBS)?","SELECT Name, Origin FROM program WHERE Owner = 'Hunan Broadcasting System (HBS)';"
+program_share,What are the names of the channels and their corresponding times of day for broadcasts on channels with a rating greater than 10%?,"SELECT channel.Name, broadcast.Time_of_day FROM channel JOIN broadcast ON channel.Channel_ID = broadcast.Channel_ID WHERE channel.Rating_in_percent > 0.10;"
+school_player,"What is the name, location, and enrollment of the Catholic school founded before 1900?","SELECT School, Location, Enrollment FROM school WHERE Founded < 1900 AND Denomination = 'Catholic';"
+school_player,"What is the nickname of the school named ""St Aloysius' College"" that had a Class A performance of ""Skidmore-Tynan"" in the 1989-90 school year?","SELECT s.School, sd.Nickname, sp.Class_A FROM school s JOIN school_details sd ON s.School_ID = sd.School_ID JOIN school_performance sp ON s.School_ID = sp.School_Id WHERE sp.School_Year = '1989-90' AND sp.Class_A = 'Skidmore-Tynan';"
+aircraft,"Which pilots are older than 30, and what are their ages?","SELECT Name, Age FROM pilot WHERE Age > 30;"
+aircraft,"Which airports have more than 500,000 international passengers, and what are their total passenger numbers?","SELECT Airport_Name, Total_Passengers FROM airport WHERE International_Passengers > 500000;"
+chinook_1,What are the titles of the albums by the artist with ID 1?,SELECT Title FROM Album WHERE ArtistId = 1;
+chinook_1,What are the first and last names of customers from the USA?,"SELECT FirstName, LastName FROM Customer WHERE Country = 'USA';"
+journal_committee,"What were the sales for the journal with the theme ""Miami Dolphins"" on September 9, 2001?",SELECT * FROM journal WHERE Theme = 'Miami Dolphins';
+journal_committee,Who are the editors older than 30?,SELECT Name FROM editor WHERE Age > 30;
+party_people,Which regions have the format 'CD' and what are their corresponding labels?,"SELECT Region_name, Label FROM region WHERE Format = 'CD';"
+party_people,Which member from the party with the ID corresponding to '3' has been in office from 1996 to the present?,SELECT Member_Name FROM member WHERE In_office = '1996–present' AND Party_ID = (SELECT Party_ID FROM party WHERE Party_name = '3');
+products_for_hire,Who are the good female customers listed in the database?,"SELECT first_name, last_name FROM Customers WHERE good_or_bad_customer = 'good' AND gender_mf = '0';"
+products_for_hire,"What are the daily hire costs for cutlery products, and how are they ranked from highest to lowest?","SELECT product_name, daily_hire_cost FROM Products_for_Hire WHERE product_type_code = 'Cutlery' ORDER BY daily_hire_cost DESC;"
+company_office,What are the names and cities of buildings that are over 200 meters tall and currently under construction?,"SELECT name, City FROM buildings WHERE Height > 200 AND Status = 'under construction';"
+company_office,Which companies in the banking industry have a market value greater than 50 billion and are ordered by their profits in descending order?,"SELECT name, Industry FROM Companies WHERE Market_Value_billion > 50 ORDER BY Profits_billion DESC;"
+flight_2,What is the name and country of the airline with the abbreviation 'USAir'?,"SELECT Airline, Country FROM airlines WHERE Abbreviation = 'USAir';"
+browser_web,What are the names and operating systems of web client accelerators for the client 'user'?,"SELECT name, Operating_system FROM Web_client_accelerator WHERE Client = 'user';"
+browser_web,Which browser has a market share greater than 20%?,SELECT name FROM browser WHERE market_share > 20;
+restaurant_1,What are the details of students who have a major code of 600?,SELECT * FROM Student WHERE Major = 600;
+restaurant_1,Which restaurant has a rating of 4?,SELECT ResName FROM Restaurant WHERE Rating = 4;
+flight_company,"What is the name, city, and country of the airport with the IATA code 'AMS'?","SELECT name, City, Country FROM airport WHERE IATA = 'AMS';"
+flight_company,What are the names and types of companies incorporated in China?,"SELECT name, Type FROM operate_company WHERE Incorporated_in = 'China';"
+network_1,Which students are in the 10th grade?,SELECT name FROM Highschooler WHERE grade = 10;
+network_1,Which high schoolers are friends with the student who has the ID 1510?,SELECT name FROM Highschooler WHERE ID IN (SELECT friend_id FROM Friend WHERE student_id = 1510);
+wine_1,What are the names of the grape varieties that are red in color?,"SELECT Grape, Color FROM grapes WHERE Color = 'Red';"
+wine_1,What are the names of the appellations in California that are designated as American Viticultural Areas (AVA)?,"SELECT Appelation, State FROM appellations WHERE isAVA = 'Yes';"
+employee_hire_evaluation,What are the names and ages of employees who live in Bristol?,"SELECT Name, Age FROM employee WHERE City = 'Bristol';"
+employee_hire_evaluation,Which shop in the Tehtaan kenttä district has more than 100 products?,"SELECT Shop_ID, Name FROM shop WHERE District = 'Tehtaan kenttä' AND Number_products > 100;"
+world_1,"What are the names and populations of cities in the USA with a population greater than 1,000,000?","SELECT Name, Population FROM city WHERE CountryCode = 'USA' AND Population > 1000000;"
+world_1,"Which countries have a life expectancy greater than 75, and what continents are they located on?","SELECT Name, Continent FROM country WHERE LifeExpectancy > 75 ORDER BY GNP DESC;"
+concert_singer,What is the name and capacity of the stadium located at Raith Rovers?,"SELECT Name, Capacity FROM stadium WHERE Location = 'Raith Rovers';"
+concert_singer,What was the name and year of the concert held in stadium ID 1 with the theme 'Free choice'?,"SELECT concert_Name, Year FROM concert WHERE Stadium_ID = 1 AND Theme = 'Free choice';"
+museum_visit,Which museums were opened in or before the year 2000?,SELECT Name FROM museum WHERE Open_Year <= 2000;
+museum_visit,What is the name of the visitor with a level of membership of 8?,SELECT Name FROM visitor WHERE Level_of_membership = '8';
+student_assessment,"What are the first names, last names, and email addresses of people whose email addresses end with ""@example.com""?","SELECT first_name, last_name, email_address FROM People WHERE email_address LIKE '%@example.com';"
+student_assessment,What courses is the student with ID 121 registered for?,SELECT course_name FROM Courses WHERE course_id IN (SELECT course_id FROM Student_Course_Registrations WHERE student_id = 121);
+orchestra,What is the name and nationality of the conductor who is over 50 years old?,"SELECT Name, Nationality FROM conductor WHERE Age > 50;"
+orchestra,"Which orchestra, founded in 2009, has a major record format of CD/LP?","SELECT Orchestra, Year_of_Founded FROM orchestra WHERE Major_Record_Format = 'CD / LP';"
+wedding,What are the names of people from the United States who are older than 30?,SELECT Name FROM people WHERE Country = 'United States' AND Age > 30;
+architecture,Which American architect is named Frank Lloyd Wright?,SELECT name FROM architect WHERE nationality = 'American';
+architecture,"What are the names and lengths in meters of the bridges located in Guangxi, China?","SELECT name, length_meters FROM bridge WHERE location = 'Guangxi , China';"
+college_1,What are the class codes and sections for classes held in room BUS311?,"SELECT CLASS_CODE, CLASS_SECTION FROM CLASS WHERE CLASS_ROOM = 'BUS311';"
+college_1,Who are the employees with the job code 'PROF'?,"SELECT EMP_LNAME, EMP_FNAME FROM EMPLOYEE WHERE EMP_JOBCODE = 'PROF';"
+local_govt_mdm,What are the master customer IDs and their corresponding details for customers in the 'Rent' source system?,"SELECT cmi.master_customer_id, cmi.cmi_details FROM Customer_Master_Index cmi JOIN CMI_Cross_References cr ON cmi.master_customer_id = cr.master_customer_id WHERE cr.source_system_code = 'Rent';"
+local_govt_mdm,What is the business rates ID for the master customer with ID 1?,SELECT br.business_rates_id FROM Business_Rates br JOIN CMI_Cross_References cr ON br.cmi_cross_ref_id = cr.cmi_cross_ref_id WHERE cr.master_customer_id = 1;
+phone_market,What are the names and prices of phones available from the carrier Sprint?,"SELECT Name, Price FROM phone WHERE Carrier = 'Sprint';"
+phone_market,"Which markets have more than 10 shops, and what are their corresponding districts?","SELECT Market_ID, District FROM market WHERE Num_of_shops > 10;"
+department_management,"Which departments have a budget greater than 10 billion dollars, and what are their respective budgets?","SELECT Name, Budget_in_Billions FROM department WHERE Budget_in_Billions > 10;"
+department_management,"What are the names and ages of individuals from the ""head"" table who were born in California?","SELECT name, age FROM head WHERE born_state = 'California';"
+assets_maintenance,What are the names and addresses of the companies that are classified as suppliers?,"SELECT company_name, company_address FROM Third_Party_Companies WHERE company_type = 'Supplier';"
+assets_maintenance,"What are the asset IDs, makes, and models of assets acquired after January 1, 2017?","SELECT asset_id, asset_make, asset_model FROM Assets WHERE asset_acquired_date > '2017-01-01';"
+tracking_software_problems,What are the first and last names of the staff member with the staff ID of 1?,"SELECT staff_first_name, staff_last_name FROM Staff WHERE staff_id = 1;"
+dog_kennels,"What is the first name, last name, and email address of the owner who lives in Lake Tia?","SELECT first_name, last_name, email_address FROM Owners WHERE city = 'Lake Tia';"
+dog_kennels,"What are the names, ages, and genders of the large-sized dogs with the breed code 'BUL'?","SELECT name, age, gender FROM Dogs WHERE breed_code = 'BUL' AND size_code = 'LGE';"
+cre_Doc_Template_Mgt,What are the Template_IDs and their corresponding Template_Details for templates with a Template_Type_Code of 'PP'?,"SELECT Template_ID, Template_Details FROM Templates WHERE Template_Type_Code = 'PP';"
+cre_Doc_Template_Mgt,"What is the description of the document named ""Summer Show"" with a template ID of 6?","SELECT Document_Name, Document_Description FROM Documents WHERE Template_ID = 6;"
+baseball_1,Which player won the Pitching Triple Crown award in the National League in 1877?,"SELECT player_id, year, award_id FROM player_award WHERE league_id = 'NL' AND year = 1877;"
+baseball_1,"Which players hit at least one home run in the year 1871, and how many games did each of them play for their respective teams?","SELECT player_id, team_id, g FROM batting WHERE hr > 0 AND year = 1871;"
+shop_membership,What are the names and hometowns of members who are at level 6?,"SELECT Name, Hometown FROM member WHERE Level = 6;"
+shop_membership,What are the names and cities of branches that had memberships registered in the year 2016?,"SELECT branch.Name, branch.City FROM branch JOIN membership_register_branch ON branch.Branch_ID = membership_register_branch.Branch_ID WHERE membership_register_branch.Register_Year = 2016;"
+match_season,What is the capital of the country where the official native language is Bahasa Indonesia?,"SELECT Country_name, Capital FROM country WHERE Official_native_language = 'Bahasa Indonesia';"
+match_season,What is the name of the team with a Team_id of 1?,SELECT Name FROM team WHERE Team_id = 1;
+debate,What is the name and party affiliation of the person representing New York 1 district?,"SELECT Name, Party FROM people WHERE District = 'New York 1';"
+debate,What are the venues and dates of debates that had more than 100 audience members?,"SELECT Venue, Date FROM debate WHERE Num_of_Audience > 100;"
+tracking_grants_for_research,What are the document IDs and their descriptions for the documents associated with grant ID 5?,"SELECT document_id, document_description FROM Documents JOIN Document_Types ON Documents.document_type_code = Document_Types.document_type_code WHERE grant_id = 5;"
+tracking_grants_for_research,What are the organisation IDs and their details for organisations of type 'RES'?,"SELECT organisation_id, organisation_details FROM Organisations WHERE organisation_type = 'RES';"
+student_transcripts_tracking,"What is the first name, last name, and email address of the student whose current address ID is 10?","SELECT first_name, last_name, email_address FROM Students WHERE current_address_id = 10;"
+student_transcripts_tracking,What is the name of the course that has a section named 'b'?,SELECT course_name FROM Courses WHERE course_id IN (SELECT course_id FROM Sections WHERE section_name = 'b')
+local_govt_and_lot,What are the details of the customer with the ID 4?,"SELECT customer_id, customer_details FROM Customers WHERE customer_id = 4;"
+local_govt_and_lot,What are the property IDs and addresses of the apartments?,"SELECT property_id, property_address FROM Properties WHERE property_type_code = 'apartment';"
+sports_competition,"Which clubs that started after the year 2000 are located in the USA, China, Japan, and Brazil?","SELECT name, Region FROM club WHERE Start_year > 2000;"
+products_gen_characteristics,"What is the typical selling price of the product named ""peper"" in the ""Spices"" category with a color code of '2'?","SELECT product_name, typical_selling_price FROM Products WHERE color_code = '2' AND product_category_code = 'Spices';"
+epinions_1,What are the titles of items that have received a rating greater than 4 in reviews?,SELECT title FROM item WHERE i_id IN (SELECT i_id FROM review WHERE rating > 4);
+epinions_1,Which user has a rank of 1 in the reviews?,SELECT name FROM useracct WHERE u_id IN (SELECT u_id FROM review WHERE rank = 1);
+insurance_and_eClaims,"What are the details of policies that started after January 1, 2017, and ended before December 31, 2018, including their policy ID, customer ID, policy type, start date, and end date?",SELECT * FROM Policies WHERE Start_Date > '2017-01-01' AND End_Date < '2018-12-31';
+insurance_and_eClaims,What are the claim header IDs and the amounts claimed for claims with a status code of 'Disputed'?,"SELECT Claim_Header_ID, Amount_Claimed FROM Claim_Headers WHERE Claim_Status_Code = 'Disputed';"
+customer_deliveries,What are the names and prices of products that cost more than 100?,"SELECT product_name, product_price FROM Products WHERE product_price > 100;"
+customer_deliveries,"Who are the customers who became customers after January 1, 2010, and what are their email addresses?","SELECT customer_name, customer_email FROM Customers WHERE date_became_customer > '2010-01-01';"
+manufacturer,Which manufacturers were established before the year 2000?,SELECT Name FROM manufacturer WHERE Open_Year < 2000;
+manufacturer,What are the names and market rates of furniture items that have more than 5 components?,"SELECT Name, Market_Rate FROM furniture WHERE Num_of_Component > 5;"
+party_host,"What are the details of parties held at Hemkade 48 Zaandam, including their themes, the first and last years they were held, and the number of hosts?",SELECT * FROM party WHERE Location = 'Hemkade 48 Zaandam';
+party_host,What are the names of hosts from the United States who are older than 30?,SELECT Name FROM host WHERE Nationality = 'United States' AND Age > 30;
+e_learning,What are the names and descriptions of the courses authored by the person with author ID 8?,"SELECT course_name, course_description FROM Courses WHERE author_id = 8;"
+e_learning,"Who are the students who registered after January 1, 2015?","SELECT personal_name, family_name FROM Students WHERE date_of_registration > '2015-01-01';"
+customers_and_products_contacts,What is the name and email of the customer who lives at 636 Chanelle Isle Apt. 846?,"SELECT customer_name, customer_email FROM Customers WHERE customer_address = '636 Chanelle Isle Apt. 846';"
+customers_and_products_contacts,What are the product names and their corresponding prices for hardware products?,"SELECT product_name, product_price FROM Products WHERE product_type_code = 'Hardware';"
+flight_1,"What are the flight numbers, origins, and destinations of flights with a price less than $500?","SELECT flno, origin, destination FROM flight WHERE price < 500;"
+flight_1,"Which employees have a salary greater than 70,000?",SELECT name FROM employee WHERE salary > 70000;
+department_store,"Which customers have used a credit card as their payment method, and what are their email addresses?","SELECT customer_name, customer_email FROM Customers WHERE payment_method_code = 'Credit Card';"
+department_store,What are the names and prices of products that are classified as clothes?,"SELECT product_name, product_price FROM Products WHERE product_type_code = 'Clothes';"
+entertainment_awards,What are the names and locations of the festivals that took place in 2007?,"SELECT Festival_Name, Location FROM festival_detail WHERE Year = 2007;"
+entertainment_awards,"What are the names of the artworks that are classified as ""Program Music/Variety Show""?",SELECT Name FROM artwork WHERE Type = 'Program Music/Variety Show';
+customers_card_transactions,What is the account name for the customer with ID 6?,SELECT account_name FROM Accounts WHERE customer_id = 6;
+customers_card_transactions,What are the first and last names of the customer with the email address fahey.dorian@example.com?,"SELECT customer_first_name, customer_last_name FROM Customers WHERE customer_email = 'fahey.dorian@example.com';"
+farm,What is the population of the town named Grand Falls/Grand-Sault?,"SELECT Official_Name, Population FROM city WHERE Status = 'Town' AND Population > 1000;"
+farm,What was the theme of the farm competition held in 2013 in the city with Host_city_ID 1?,"SELECT Year, Theme FROM farm_competition WHERE Host_city_ID = 1;"
+game_injury,What are the names and average attendances of stadiums where the capacity percentage is greater than 75%?,"SELECT name, Average_Attendance FROM stadium WHERE Capacity_Percentage > 75;"
+game_injury,What were the scores of the games between Quruvchi and Pakhtakor in the 2007 League season?,"SELECT Home_team, Away_team, Score FROM game WHERE Season = '2007' AND Competition = 'League';"
+pilot_record,"What are the details of the aircraft manufactured by Gillig, including their order year, model, fleet series, powertrain, and fuel propulsion type?",SELECT * FROM aircraft WHERE Manufacturer = 'Gillig';
+pilot_record,What are the names and ranks of pilots from the United States who are older than 30?,"SELECT Pilot_name, Rank FROM pilot WHERE Nationality = 'United States' AND Age > 30;"
+station_weather,What is the train number and name of the train that travels from Chennai to Guruvayur?,"SELECT train_number, name FROM train WHERE origin = 'Chennai' AND destination = 'Guruvayur';"
+station_weather,What are the network names and services provided by stations in the Chiltern local authority?,"SELECT network_name, services FROM station WHERE local_authority = 'Chiltern';"
+film_rank,"What is the gross revenue in dollars for the film ""ET the Extra-Terrestrial"" produced by Universal?","SELECT Title, Gross_in_dollar FROM film WHERE Studio = 'Universal';"
+film_rank,Which countries have more than 10 cities in the market?,SELECT Country FROM market WHERE Number_cities > 10;
+dorm_1,What are the details of students who have a major code of 600?,SELECT * FROM Student WHERE Major = 600;
+dorm_1,What are the names of dorms that are co-ed and have a student capacity greater than 100?,SELECT dorm_name FROM Dorm WHERE gender = 'X' AND student_capacity > 100;
+riding_club,"Which female players ranked 1st, 2nd, or 3rd, and who are their sponsors?","SELECT Player_name, Sponsor_name FROM player WHERE Gender = 'F' AND Rank IN ('1st', '2nd', '3rd');"
+riding_club,"Which clubs that started after the year 2000 are located in the USA, Korea, and France?","SELECT Club_name, Region FROM club WHERE Start_year > 2000;"
+course_teach,What is the Course ID and starting date for the Math course?,SELECT * FROM course WHERE Course = 'Math';
+course_teach,What is the name and age of the teacher from Blackrod Urban District?,"SELECT Name, Age FROM teacher WHERE Hometown = 'Blackrod Urban District';"
+small_bank_1,What is the name of the account holder with customer ID 1?,SELECT name FROM ACCOUNTS WHERE custid = 1;
+small_bank_1,What is the balance in the savings account for the customer with ID 2?,SELECT balance FROM SAVINGS WHERE custid = 2;
+tracking_share_transactions,What are the details of the investor with the ID 1?,"SELECT investor_id, Investor_details FROM Investors WHERE investor_id = 1;"
+tracking_share_transactions,"What was the amount of the transaction with ID 1 that occurred on September 16, 1988, at 19:02:51?","SELECT transaction_id, amount_of_transaction FROM Transactions WHERE date_of_transaction = '1988-09-16 19:02:51';"
+theme_gallery,"Which artists joined before 2010, and what are their respective countries?","SELECT Name, Country FROM artist WHERE Year_Join < 2010;"
+theme_gallery,"What was the ticket price for the ""Santa Claus"" exhibition in 2004?","SELECT Theme, Ticket_Price FROM exhibition WHERE Year = 2004;"
+bike_1,"Which stations have a dock count greater than 20, and in which cities are they located?","SELECT name, city FROM station WHERE dock_count > 20;"
+bike_1,"What are the start station names with the highest number of trips for subscribers, and how many trips were recorded for each station?","SELECT start_station_name, COUNT(*) FROM trip WHERE subscription_type = 'Subscriber' GROUP BY start_station_name ORDER BY COUNT(*) DESC;"
+real_estate_properties,"What are the agreed selling prices for the properties named ""park"" and ""the cole"" that are classified as houses and have been sold?","SELECT property_name, agreed_selling_price FROM Properties WHERE property_type_code = 'House' AND date_sold IS NOT NULL;"
+real_estate_properties,What are the names of the amenities available?,SELECT feature_name FROM Other_Available_Features WHERE feature_type_code = 'Amenity';
+behavior_monitoring,"What are the first names, last names, and email addresses of students who have left the university?","SELECT first_name, last_name, email_address FROM Students WHERE date_left_university IS NOT NULL;"
+behavior_monitoring,What are the summaries and recommendations for behavior incidents classified as 'Violence'?,"SELECT incident_summary, recommendations FROM Behavior_Incident WHERE incident_type_code = (SELECT incident_type_code FROM Ref_Incident_Type WHERE incident_type_description = 'Violence');"
+news_report,What are the names and venues of events with attendance greater than 1000?,"SELECT Name, Venue FROM event WHERE Event_Attendance > 1000;"
+news_report,What are the names and nationalities of journalists over the age of 30?,"SELECT Name, Nationality FROM journalist WHERE Age > 30;"
+device,What are the details of the device with the carrier Verizon Wireless?,SELECT * FROM device WHERE Carrier = 'Verizon Wireless';
+device,What is the name and location of the shop that opened in 2006?,"SELECT Shop_Name, Location FROM shop WHERE Open_Year = 2006;"
+flight_4,What are the routes operated by airline '2B' that do not have a codeshare agreement?,SELECT * FROM routes WHERE airline = '2B' AND codeshare IS NULL;
+flight_4,What are the names and cities of airports in the United States that have an elevation greater than 1000 feet?,"SELECT name, city FROM airports WHERE country = 'United States' AND elevation > 1000;"
+gas_company,"Which companies have sales greater than 50 billion, and what are their respective sales figures in billions?","SELECT Company, Sales_billion FROM company WHERE Sales_billion > 50;"
+gas_company,"Which managers are in charge of gas stations that opened before the year 2000, and where are these stations located?","SELECT Manager_Name, Location FROM gas_station WHERE Open_Year < 2000;"
+movie_1,"What movie, directed by Victor Fleming, was released in 1939?",SELECT * FROM Movie WHERE year = 1939;
+movie_1,What is the name of the reviewer with the ID 201?,SELECT name FROM Reviewer WHERE rID = 201;
+activity_1,What activities is the student with ID 1001 participating in?,SELECT activity_name FROM Activity WHERE actid IN (SELECT actid FROM Participates_in WHERE stuid = 1001);
+activity_1,Which students are participating in the activity with the ID 770?,"SELECT Fname, LName FROM Student WHERE StuID IN (SELECT stuid FROM Participates_in WHERE actid = 770);"
+decoration_competition,What is the name of the leader of B.C. School located in Minnesota?,"SELECT Name, Leader_Name FROM college WHERE College_Location = 'Minnesota';"
+decoration_competition,Which members are associated with the Saskatchewan School?,SELECT member.Name FROM member JOIN college ON member.College_ID = college.College_ID WHERE college.Name = 'Saskatchewan School';
+tvshow,What are the names of the TV series and their country of origin for Italian-language channels that are not in high definition?,"SELECT series_name, Country FROM TV_Channel WHERE Language = 'Italian' AND Hight_definition_TV = 'no';"
+customers_and_addresses,"Which customers had their orders cancelled, and on what dates did these cancellations occur?","SELECT customer_name, order_date, order_status FROM Customers INNER JOIN Customer_Orders ON Customers.customer_id = Customer_Orders.customer_id WHERE order_status = 'Cancelled';"
+customers_and_addresses,"What are the residential addresses, along with their cities and states, listed in the customer addresses?","SELECT address_content, city, state_province_county FROM Addresses INNER JOIN Customer_Addresses ON Addresses.address_id = Customer_Addresses.address_id WHERE Customer_Addresses.address_type = 'Residential';"
+election,What is the population of the county with the zip code 'D21'?,"SELECT County_name, Population FROM county WHERE Zip_code = 'D21';"
+election,"Which parties had candidates running for governor in 2002, and who were the candidates?","SELECT Party, Governor FROM party WHERE Year = 2002.0;"
+cinema,What is the title and director of the film ranked 26th in the series?,"SELECT Title, Directed_by FROM film WHERE Rank_in_series = 26;"
+cinema,Which cinemas with a capacity greater than 500 are located in County Wicklow and County Clare?,"SELECT Name, Location FROM cinema WHERE Capacity > 500;"
+customer_complaints,What are the first and last names of the staff members who have a gender value of '0'?,"SELECT first_name, last_name FROM Staff WHERE gender = '0';"
+customer_complaints,What is the name and price of the product that costs more than $100.00?,"SELECT product_name, product_price FROM Products WHERE product_price > 100.00;"
+allergy_1,What are some examples of food allergies?,SELECT Allergy FROM Allergy_Type WHERE AllergyType = 'food';
+allergy_1,"Which students have a shellfish allergy, identified by their student IDs?",SELECT StuID FROM Has_Allergy WHERE Allergy = 'Shellfish';
+insurance_policies,What are the details of the customer with Customer_ID 1?,SELECT * FROM Customers WHERE Customer_ID = 1;
+insurance_policies,What are the start and end dates for the car policy with Policy ID 119 for the customer with ID 1?,"SELECT Policy_ID, Start_Date, End_Date FROM Customer_Policies WHERE Customer_ID = 1 AND Policy_Type_Code = 'Car';"
+cre_Theme_park,What are the names of tourist attractions with an attraction type code of '2'?,"SELECT Name, Description FROM Tourist_Attractions WHERE Attraction_Type_Code = '2';"
+cre_Theme_park,What are the hotel IDs and their price ranges for 5-star hotels that allow pets?,"SELECT hotel_id, price_range FROM Hotels WHERE pets_allowed_yn = '1' AND star_rating_code = '5';"
+college_3,What are the first and last names of students who are majoring in 600 and are older than 20?,"SELECT Fname, LName FROM Student WHERE Major = 600 AND Age > 20;"
+workshop_paper,"What is the name and venue of the workshop that took place on August 18, 2007?","SELECT Name, Venue FROM workshop WHERE Date = 'August 18, 2007';"
+workshop_paper,What is the score of Steve Niehaus from Notre Dame?,"SELECT Author, Scores FROM submission WHERE College = 'Notre Dame';"
+coffee_shop,What are the addresses of shops with a score greater than 8 that opened before 2015?,"SELECT Shop_ID, Address FROM shop WHERE Score > 8 AND Open_Year < 2015;"
+coffee_shop,What are the names and levels of membership of members who are older than 30 and have an address in Hartford?,"SELECT Name, Level_of_membership FROM member WHERE Age > 30 AND Address LIKE '%Hartford%';"
+cre_Docs_and_Epenses,What are the names and descriptions of documents with the type code 'CV'?,"SELECT Document_Name, Document_Description FROM Documents WHERE Document_Type_Code = 'CV';"
+apartment_rentals,What is the full name and address of the apartment building managed by Emma?,"SELECT building_full_name, building_address FROM Apartment_Buildings WHERE building_manager = 'Emma';"
+apartment_rentals,"What are the first and last names of female guests born before January 1, 1990?","SELECT guest_first_name, guest_last_name FROM Guests WHERE gender_code = 'Female' AND date_of_birth < '1990-01-01';"
+pets_1,What are the first and last names of students who have a major with the code '600'?,"SELECT Fname, LName FROM Student WHERE Major = '600';"
+pets_1,Which student has a pet with the PetID 2001?,SELECT StuID FROM Has_Pet WHERE PetID = 2001;
+school_finance,What are the names and locations of schools in County 50 Marshall?,"SELECT School_name, Location FROM School WHERE County = '50 Marshall';"
+csu_1,What were the campus fees for each campus in the year 1996?,"SELECT Campus, Year, CampusFee FROM csu_fees WHERE Year = 1996;"
+csu_1,What are the campuses and disciplines where undergraduate enrollments exceeded 1000 in the year 2004?,"SELECT Campus, Discipline, Undergraduate FROM discipline_enrollments WHERE Year = 2004 AND Undergraduate > 1000;"
+customers_campaigns_ecommerce,What are the names and email addresses of customers who use a credit card as their payment method?,"SELECT customer_name, customer_email FROM Customers WHERE payment_method = 'Credit Card';"
+customers_campaigns_ecommerce,What are the names of the products in the Electronics category?,SELECT product_name FROM Products WHERE product_category = 'Electronics';
+performance_attendance,What are the names and nationalities of the members who play the violin?,"SELECT Name, Nationality FROM member WHERE Role = 'Violin';"
+performance_attendance,What are the dates and locations of performances where the attendance was greater than 1000?,"SELECT Date, Location FROM performance WHERE Attendance > 1000;"
+cre_Doc_Tracking_DB,What is the name and description of the document type with the code 'CV'?,"SELECT Document_Type_Name, Document_Type_Description FROM Ref_Document_Types WHERE Document_Type_Code = 'CV';"
+cre_Doc_Tracking_DB,Which female employees have the roles of Editor or Proof Reader?,"SELECT Employee_Name, Role_Name FROM Employees JOIN Roles ON Employees.Role_Code = Roles.Role_Code WHERE Gender_MFU = '1';"
+battle_death,What are the names and dates of battles where the result was a Bulgarian victory?,"SELECT name, date FROM battle WHERE result = 'Bulgarian victory';"
+battle_death,What are the names and tonnage of ships that are of type 'Brig' and have been captured?,"SELECT name, tonnage FROM ship WHERE ship_type = 'Brig' AND disposition_of_ship = 'Captured';"
+phone_1,"Which chip models with more than 32 MiB of RAM and no WiFi were launched in the years 2002, 2003, 2004, and 2005?","SELECT Model_name, Launch_year FROM chip_model WHERE RAM_MiB > 32 AND WiFi = 'No';"
+phone_1,What are the graphics modes and their corresponding pixel resolutions for screen modes that are of type 'Graphics' and have more than 2 hardware colours?,"SELECT Graphics_mode, Pixels FROM screen_mode WHERE Type = 'Graphics' AND Hardware_colours > 2.0;"
+music_1,Which artist prefers the genre 'tagore'?,SELECT artist_name FROM artist WHERE preferred_genre = 'tagore';
+music_1,What are the file IDs and sizes of the files in MP3 format?,"SELECT f_id, file_size FROM files WHERE formats = 'mp3';"
+culture_company,"Which books in the ""Gay M/SF"" category were published in 1989, who were their authors or editors, and what were their results in the book club?",SELECT * FROM book_club WHERE Year = 1989 AND Category = 'Gay M/SF';
+culture_company,"Which movies have a worldwide gross greater than 500, and who directed them?","SELECT Title, Director FROM movie WHERE Gross_worldwide > 500;"
+customers_and_invoices,"What are the first names, last names, and email addresses of customers from the USA?","SELECT customer_first_name, customer_last_name, email_address FROM Customers WHERE country = 'USA';"
+customers_and_invoices,What are the names and unit prices of medium-sized red products?,"SELECT product_name, unit_price FROM Products WHERE product_color = 'Red' AND product_size = 'Medium';"
+voter_1,What is the state associated with the area code 201?,SELECT state FROM AREA_CODE_STATE WHERE area_code = 201;
+voter_1,What is the name of the contestant with contestant number 1?,SELECT contestant_name FROM CONTESTANTS WHERE contestant_number = 1;
+soccer_2,"Which colleges have an enrollment of more than 10,000 students, and what states are they located in?","SELECT cName, state FROM College WHERE enr > 10000;"
+soccer_2,Which players have not received a yellow card?,SELECT pName FROM Player WHERE yCard = 'no';
+tracking_orders,What is the name of the customer with the customer ID of 1?,SELECT customer_name FROM Customers WHERE customer_id = 1;
+tracking_orders,"What is the status of the order placed on February 21, 2009, at 15:26:19, and what is its order ID?","SELECT order_id, order_status FROM Orders WHERE date_order_placed = '2009-02-21 15:26:19';"
+document_management,"Which users have the role code 'DBA', and what are their login statuses?","SELECT user_name, user_login FROM Users WHERE role_code = 'DBA';"
+document_management,What are the names of the documents that have been accessed more than 100 times?,SELECT document_name FROM Documents WHERE access_count > 100;
+formula_1,What are the names and locations of the circuits in Italy?,"SELECT name, location, country FROM circuits WHERE country = 'Italy';"
+formula_1,"Which drivers, born before January 1, 1990, have their forename, surname, and nationality listed?","SELECT forename, surname, nationality FROM drivers WHERE dob < '1990-01-01';"
+swimming,Which swimmer from France has a 100-meter time of less than 57.31 seconds?,"SELECT name, Nationality FROM swimmer WHERE meter_100 < 57.31;"
+swimming,What are the names and capacities of stadiums located in Spain?,"SELECT name, Capacity FROM stadium WHERE Country = 'Spain';"
+music_4,"Which artists over the age of 30 have the famous titles ""Bergen 1996,"" ""Transmutation,"" ""Unholy Metal Way (re-release),"" and ""Antithesis of All Flesh""?","SELECT Artist, Famous_Title FROM artist WHERE Age > 30;"
+music_4,"What are the songs that have been on top since January 1, 2023, and how many weeks have they each been on top?","SELECT Song, Weeks_on_Top FROM volume WHERE Issue_Date > '2023-01-01';"
+product_catalog,What is the name and publication date of the catalog published by Koepp-Rutherford handmade chocolate store?,"SELECT catalog_name, date_of_publication FROM Catalogs WHERE catalog_publisher = 'Koepp-Rutherford handmade chocolate store';"
+product_catalog,What are the names and prices of catalog entries that cost more than 100 dollars?,"SELECT catalog_entry_name, price_in_dollars FROM Catalog_Contents WHERE price_in_dollars > 100;"
+e_government,What are the first and last names of the individual with the email 'amie.okuneva@example.org'?,"SELECT individual_first_name, individual_last_name FROM Individuals WHERE individual_email = 'amie.okuneva@example.org';"
+train_station,"Which stations have more than 5 platforms, and what are their total passenger numbers?","SELECT Name, Total_Passengers FROM station WHERE Number_of_Platforms > 5;"
+train_station,What are the Train_IDs and Names of trains that have a daily service?,"SELECT Train_ID, Name FROM train WHERE Service = 'Daily';"
+twitter_1,Who does the user with ID 7 follow?,SELECT * FROM follows WHERE f1 = '7';
+twitter_1,What are the most recent tweets from the user with UID '1'?,SELECT text FROM tweets WHERE uid = '1' ORDER BY createdate DESC;

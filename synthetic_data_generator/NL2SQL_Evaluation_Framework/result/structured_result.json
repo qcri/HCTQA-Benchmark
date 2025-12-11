@@ -1,0 +1,4682 @@
+[
+  {
+    "row_id": 0,
+    "db_name": "college_2",
+    "NLQorg": "Which instructors from the Cybernetics department have a salary greater than 80,000?",
+    "NLQparap": "What instructors in the Cybernetics department have a salary exceeding 80,000 dollars?",
+    "SQLorg": "SELECT name FROM instructor WHERE dept_name = 'Cybernetics' AND salary > 80000;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 1,
+    "db_name": "college_2",
+    "NLQorg": "What are the course IDs and titles of courses in the Mechanical Engineering department that have 3 credits?",
+    "NLQparap": "What are the course IDs and titles of the courses that belong to the Mechanical Engineering department and have a credit value of 3?",
+    "SQLorg": "SELECT course_id, title FROM course WHERE credits = 3 AND dept_name = 'Mech. Eng.';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 2,
+    "db_name": "mountain_photos",
+    "NLQorg": "What are the names and heights of mountains located in Ethiopia?",
+    "NLQparap": "What are the mountain names and their respective heights where the country is Ethiopia?",
+    "SQLorg": "SELECT name, Height FROM mountain WHERE Country = 'Ethiopia';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 3,
+    "db_name": "mountain_photos",
+    "NLQorg": "What are the brands and names of camera lenses with a maximum aperture of less than 2.8?",
+    "NLQparap": "What are the brands and names of camera lenses that have a maximum aperture smaller than 2.8?",
+    "SQLorg": "SELECT brand, name FROM camera_lens WHERE max_aperture < 2.8;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 4,
+    "db_name": "hr_1",
+    "NLQorg": "Which countries are located in the region with the ID of 1?",
+    "NLQparap": "What regions do countries belong to where the region's ID is 1?",
+    "SQLorg": "SELECT COUNTRY_NAME FROM countries WHERE REGION_ID = 1;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 5,
+    "db_name": "hr_1",
+    "NLQorg": "Which employees have a salary greater than 17,000?",
+    "NLQparap": "What employees earn a wage exceeding seventeen thousand dollars?",
+    "SQLorg": "SELECT FIRST_NAME, LAST_NAME FROM employees WHERE SALARY > 17000;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 6,
+    "db_name": "hospital_1",
+    "NLQorg": "Who are the physicians with the position of Surgical Attending Physician?",
+    "NLQparap": "What are the names of the physicians who hold the position of Surgical Attending Physician?",
+    "SQLorg": "SELECT Name FROM Physician WHERE Position = 'Surgical Attending Physician';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 7,
+    "db_name": "hospital_1",
+    "NLQorg": "Which departments have a primary affiliation according to the given data?",
+    "NLQparap": "What departments are primarily affiliated with the physicians in the available data?",
+    "SQLorg": "SELECT Department.Name FROM Department JOIN Affiliated_With ON Department.DepartmentID = Affiliated_With.Department WHERE Affiliated_With.PrimaryAffiliation = 1;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 8,
+    "db_name": "store_1",
+    "NLQorg": "What is the name of the artist with the ID of 1?",
+    "NLQparap": "What artist do we have with an ID of 1?",
+    "SQLorg": "SELECT name FROM artists WHERE id = 1;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 9,
+    "db_name": "store_1",
+    "NLQorg": "What are the titles of the albums by the artist with ID 2?",
+    "NLQparap": "What albums does the artist with the ID of 2 have?",
+    "SQLorg": "SELECT title FROM albums WHERE artist_id = 2;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 10,
+    "db_name": "medicine_enzyme_interaction",
+    "NLQorg": "Which medicines are FDA approved, and what are their trade names?",
+    "NLQparap": "What are the names of the medicines that have been approved by the FDA and what are their trade names?",
+    "SQLorg": "SELECT * FROM medicine WHERE FDA_approved = 'Yes';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 11,
+    "db_name": "medicine_enzyme_interaction",
+    "NLQorg": "What is the location of the enzyme named \"ALA synthase\" on chromosome 3p21.1?",
+    "NLQparap": "What is the location of the enzyme known as \"ALA synthase\" situated on the chromosome 3p21.1?",
+    "SQLorg": "SELECT name, Location FROM enzyme WHERE Chromosome = '3p21.1';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 12,
+    "db_name": "storm_record",
+    "NLQorg": "What are the details of storms with a maximum speed greater than 100?",
+    "NLQparap": "What are the specifics of the storms that had a maximum wind speed exceeding 100?",
+    "SQLorg": "SELECT * FROM storm WHERE Max_speed > 100;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 13,
+    "db_name": "storm_record",
+    "NLQorg": "What are the names and the damage in millions of USD for storms that resulted in more than 50 deaths?",
+    "NLQparap": "What are the names of the storms and the total damage in millions of USD for the storms that led to over fifty fatalities?",
+    "SQLorg": "SELECT Name, Damage_millions_USD FROM storm WHERE Number_Deaths > 50;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 14,
+    "db_name": "club_1",
+    "NLQorg": "What are the first and last names of students who have a major with the code '600'?",
+    "NLQparap": "What are the full names of students whose major has a code of '600'?",
+    "SQLorg": "SELECT Fname, LName FROM Student WHERE Major = '600';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 15,
+    "db_name": "club_1",
+    "NLQorg": "What are the names of the clubs located in AKW?",
+    "NLQparap": "What are the club names that are situated in AKW?",
+    "SQLorg": "SELECT ClubName FROM Club WHERE ClubLocation = 'AKW';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 16,
+    "db_name": "protein_institute",
+    "NLQorg": "What are the names and heights in feet of buildings that have more than 10 floors?",
+    "NLQparap": "What are the heights in feet and names of the buildings that have more than ten floors?",
+    "SQLorg": "SELECT Name, Height_feet FROM building WHERE Floors > 10;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 17,
+    "db_name": "protein_institute",
+    "NLQorg": "What is the enrollment number for Dakota State University, a public institution with more than 2000 students?",
+    "NLQparap": "What are the enrollment numbers for institutions that are public and have more than 2000 students?",
+    "SQLorg": "SELECT Institution, Enrollment FROM Institution WHERE Type = 'Public' AND Enrollment > 2000;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 18,
+    "db_name": "loan_1",
+    "NLQorg": "What are the names and cities of banks located in the state of New York?",
+    "NLQparap": "What are the cities and names of the banks situated in the state of New York?",
+    "SQLorg": "SELECT bname, city FROM bank WHERE state = 'New York';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 19,
+    "db_name": "insurance_fnol",
+    "NLQorg": "Which customer has a policy with the Policy ID 257?",
+    "NLQparap": "What customer is associated with a policy that has the specific Policy ID of 257?",
+    "SQLorg": "SELECT Customer_name FROM Customers WHERE Customer_ID IN (SELECT Customer_ID FROM Customers_Policies WHERE Policy_ID = 257);",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 20,
+    "db_name": "insurance_fnol",
+    "NLQorg": "What is the service name associated with the first notification of loss ID 532?",
+    "NLQparap": "What service is linked to the first notification of loss with ID 532?",
+    "SQLorg": "SELECT Service_name FROM Services WHERE Service_ID IN (SELECT Service_ID FROM First_Notification_of_Loss WHERE FNOL_ID = 532);",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 21,
+    "db_name": "company_employee",
+    "NLQorg": "What are the names and nationalities of people who are older than 30?",
+    "NLQparap": "What are the names and nationalities of individuals whose age exceeds thirty years?",
+    "SQLorg": "SELECT Name, Nationality FROM people WHERE Age > 30;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 22,
+    "db_name": "company_employee",
+    "NLQorg": "What are the names and market values in billion dollars of companies in the conglomerate industry?",
+    "NLQparap": "What are the names and market values of companies in the conglomerate industry?",
+    "SQLorg": "SELECT Name, Market_Value_in_Billion FROM company WHERE Industry = 'Conglomerate';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 23,
+    "db_name": "company_1",
+    "NLQorg": "Which employees are working on the project named 'ProductX'?",
+    "NLQparap": "What employees are assigned to the project called 'ProductX'?",
+    "SQLorg": "SELECT Fname, Lname FROM employee WHERE Ssn IN (SELECT Essn FROM works_on WHERE Pno = (SELECT Pnumber FROM project WHERE Pname = 'ProductX'));",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 24,
+    "db_name": "company_1",
+    "NLQorg": "Which department is associated with the project named 'ProductY'?",
+    "NLQparap": "What department is linked to the project called 'ProductY'?",
+    "SQLorg": "SELECT Dname FROM department WHERE Dnumber = (SELECT Dnum FROM project WHERE Pname = 'ProductY');",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 25,
+    "db_name": "icfp_1",
+    "NLQorg": "Which institutions are located in the USA according to the given data?",
+    "NLQparap": "What countries are the institutions from the given data located in that match the country of the United States?",
+    "SQLorg": "SELECT name, country FROM Inst WHERE country = 'USA';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 26,
+    "db_name": "icfp_1",
+    "NLQorg": "What is the title of the paper with the paperID 200?",
+    "NLQparap": "What are the titles of the papers that have a paperID of 200?",
+    "SQLorg": "SELECT title FROM Papers WHERE paperID = 200;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 27,
+    "db_name": "game_1",
+    "NLQorg": "What are the details of students who have a major code of 600?",
+    "NLQparap": "What are the specifics of students whose major is associated with the code 600?",
+    "SQLorg": "SELECT * FROM Student WHERE Major = 600;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 28,
+    "db_name": "game_1",
+    "NLQorg": "What is the name of a video game that is classified as a role-playing game?",
+    "NLQparap": "What are the names of the video games that are classified as role-playing games?",
+    "SQLorg": "SELECT GName FROM Video_Games WHERE GType = 'Role-playing game';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 29,
+    "db_name": "city_record",
+    "NLQorg": "Which cities with a regional population greater than 1,000,000 have the highest GDP, and what are their GDP values?",
+    "NLQparap": "What are the regional populations of cities with the highest GDP values that exceed 1,000,000?",
+    "SQLorg": "SELECT City, GDP FROM city WHERE Regional_Population > 1000000 ORDER BY GDP DESC;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 30,
+    "db_name": "city_record",
+    "NLQorg": "What was the date and venue of the match in the 1994 FIFA World Cup qualification where the result was 5-0?",
+    "NLQparap": "What are the match dates and venues from the 1994 FIFA World Cup qualification matches that ended with a score of 5-0?",
+    "SQLorg": "SELECT Date, Venue, Result FROM match WHERE Competition = '1994 FIFA World Cup qualification' AND Result = '5-0';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 31,
+    "db_name": "local_govt_in_alabama",
+    "NLQorg": "What is the Service ID for the service with the Service Type Code 'Marriage'?",
+    "NLQparap": "What are the Service IDs for services with a Service Type Code of 'Marriage'?",
+    "SQLorg": "SELECT * FROM Services WHERE Service_Type_Code = 'Marriage';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 32,
+    "db_name": "local_govt_in_alabama",
+    "NLQorg": "What are the event details for the service with ID 8?",
+    "NLQparap": "What are the event details associated with the service that has a service ID of 8?",
+    "SQLorg": "SELECT Event_Details FROM Events WHERE Service_ID = 8;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 33,
+    "db_name": "soccer_1",
+    "NLQorg": "Which players have an overall rating greater than 85?",
+    "NLQparap": "What players possess an overall rating exceeding 85?",
+    "SQLorg": "SELECT player_name, overall_rating FROM Player INNER JOIN Player_Attributes ON Player.player_api_id = Player_Attributes.player_api_id WHERE overall_rating > 85;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 34,
+    "db_name": "soccer_1",
+    "NLQorg": "What is the name of the league in the country with ID 1?",
+    "NLQparap": "What country has an ID of 1 and what is the name of the league in that country?",
+    "SQLorg": "SELECT name FROM League WHERE country_id = 1;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 35,
+    "db_name": "scientist_1",
+    "NLQorg": "What is the name of the scientist with the SSN '123234877'?",
+    "NLQparap": "What scientist is identified by the SSN '123234877'?",
+    "SQLorg": "SELECT Name FROM Scientists WHERE SSN = '123234877';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 36,
+    "db_name": "scientist_1",
+    "NLQorg": "What are the codes and names of projects that required more than 100 hours?",
+    "NLQparap": "What are the project codes and names that have a total of over 100 hours?",
+    "SQLorg": "SELECT Code, Name FROM Projects WHERE Hours > 100;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 37,
+    "db_name": "wta_1",
+    "NLQorg": "What are the first and last names of players from the USA?",
+    "NLQparap": "What are the full names of players from the United States?",
+    "SQLorg": "SELECT first_name, last_name FROM players WHERE country_code = 'USA';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 38,
+    "db_name": "wta_1",
+    "NLQorg": "What were the results of the tennis matches played on a hard surface in 2013, including the winner, loser, and score?",
+    "NLQparap": "What are the outcomes of the tennis matches that took place on a hard surface during the year 2013, including the victor, the defeated player, and the match score?",
+    "SQLorg": "SELECT winner_name, loser_name, score FROM matches WHERE surface = 'Hard' AND year = 2013;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 39,
+    "db_name": "solvency_ii",
+    "NLQorg": "What are the names and prices of the products that are classified as books?",
+    "NLQparap": "What are the product names and their respective prices for the products that are categorized as books?",
+    "SQLorg": "SELECT Product_Name, Product_Price FROM Products WHERE Product_Type_Code = 'Books';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 40,
+    "db_name": "solvency_ii",
+    "NLQorg": "What are the Event_ID, Address_ID, and Channel_ID for events with the Event_Type_Code 'Press Conferenc'?",
+    "NLQparap": "What are the Event_ID, Address_ID, and Channel_ID for events that have an Event_Type_Code of 'Press Conferenc'?",
+    "SQLorg": "SELECT Event_ID, Address_ID, Channel_ID FROM Events WHERE Event_Type_Code = 'Press Conferenc';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 41,
+    "db_name": "machine_repair",
+    "NLQorg": "What are the details of the repairs with a launch date after January 1, 2023?",
+    "NLQparap": "What are the specifics of the repairs that took place after January 1, 2023?",
+    "SQLorg": "SELECT * FROM repair WHERE Launch_Date > '2023-01-01';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 42,
+    "db_name": "machine_repair",
+    "NLQorg": "Which technicians are older than 30, and what teams do they belong to?",
+    "NLQparap": "What teams are comprised of technicians who are over the age of thirty?",
+    "SQLorg": "SELECT Name, Team FROM technician WHERE Age > 30;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 43,
+    "db_name": "cre_Drama_Workshop_Groups",
+    "NLQorg": "What is the email address of the customer named Robert who lives in the city of Feliciaberg?",
+    "NLQparap": "What are the email addresses of the customers whose names are Robert and who reside in the city of Feliciaberg?",
+    "SQLorg": "SELECT Customer_Name, Customer_Email_Address FROM Customers WHERE Address_ID IN (SELECT Address_ID FROM Addresses WHERE City_Town = 'Feliciaberg')",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 44,
+    "db_name": "cre_Drama_Workshop_Groups",
+    "NLQorg": "What are the names and prices of products that cost more than 100?",
+    "NLQparap": "What are the product names and prices of items that have a higher price than one hundred?",
+    "SQLorg": "SELECT Product_Name, Product_Price FROM Products WHERE Product_Price > 100;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 45,
+    "db_name": "store_product",
+    "NLQorg": "What are the products with a DPI greater than 300 and a maximum page size of A4?",
+    "NLQparap": "What are the products that have a resolution of more than 300 DPI and a maximum page size of A4?",
+    "SQLorg": "SELECT product_id, product FROM product WHERE dpi > 300 AND max_page_size = 'A4';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 46,
+    "db_name": "store_product",
+    "NLQorg": "Which stores have a ranking less than 5 and an area size greater than 7.23?",
+    "NLQparap": "What stores have a ranking below 5 and an area size exceeding 7.23?",
+    "SQLorg": "SELECT Store_Name FROM store WHERE Ranking < 5 AND Area_size > 7.23;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 47,
+    "db_name": "sakila_1",
+    "NLQorg": "What are the titles of films released in 2006 that have a rental rate greater than $2.99?",
+    "NLQparap": "What are the titles of the movies that were released in the year 2006 and have a rental fee higher than $2.99?",
+    "SQLorg": "SELECT title, release_year FROM film WHERE rental_rate > 2.99;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 48,
+    "db_name": "railway",
+    "NLQorg": "What are the details of the railway located in York?",
+    "NLQparap": "What information can be found about the railway situated in York?",
+    "SQLorg": "SELECT * FROM railway WHERE Location = 'York';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 49,
+    "db_name": "railway",
+    "NLQorg": "What are the names and ages of managers at level 5 from the United States?",
+    "NLQparap": "What are the names and ages of the managers who are at level 5 and are from the country of the United States?",
+    "SQLorg": "SELECT Name, Age FROM manager WHERE Country = 'United States' AND Level = 5;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 50,
+    "db_name": "school_bus",
+    "NLQorg": "What are the names and home cities of drivers who are older than 30?",
+    "NLQparap": "What are the names and home cities of the drivers who have surpassed the age of thirty?",
+    "SQLorg": "SELECT Name, Home_city FROM driver WHERE Age > 30;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 51,
+    "db_name": "school_bus",
+    "NLQorg": "What are the names and locations of public schools?",
+    "NLQparap": "What are the names and locations of schools that are classified as public institutions?",
+    "SQLorg": "SELECT School, Location FROM school WHERE Type = 'Public';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 52,
+    "db_name": "driving_school",
+    "NLQorg": "Which staff members have left, as indicated by their first and last names?",
+    "NLQparap": "What are the names of the staff members who have departed from the driving school?",
+    "SQLorg": "SELECT first_name, last_name FROM Staff WHERE date_left_staff IS NOT NULL;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 53,
+    "db_name": "driving_school",
+    "NLQorg": "What are the email addresses and phone numbers of customers who have an outstanding amount greater than 1000?",
+    "NLQparap": "What are the email addresses and phone numbers of customers who have an outstanding balance exceeding one thousand dollars?",
+    "SQLorg": "SELECT email_address, phone_number FROM Customers WHERE amount_outstanding > 1000;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 54,
+    "db_name": "car_1",
+    "NLQorg": "What are the names of the countries located on the continent with the code '2'?",
+    "NLQparap": "What are the country names for the continents with the specified ID '2'?",
+    "SQLorg": "SELECT CountryName FROM countries WHERE Continent = '2';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 55,
+    "db_name": "car_1",
+    "NLQorg": "Which car makers are from the country with the code '2'?",
+    "NLQparap": "What countries have a code of '2' and which car makers are based in those countries?",
+    "SQLorg": "SELECT Maker FROM car_makers WHERE Country = '2';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 56,
+    "db_name": "cre_Doc_Control_Systems",
+    "NLQorg": "What is the document type description for the document type code 'CD'?",
+    "NLQparap": "What are the document type descriptions for the document types with the code 'CD'?",
+    "SQLorg": "SELECT document_type_description FROM Ref_Document_Types WHERE document_type_code = 'CD';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 57,
+    "db_name": "cre_Doc_Control_Systems",
+    "NLQorg": "Which employees have the role code 'ED'?",
+    "NLQparap": "What roles do employees have that match the role code 'ED'?",
+    "SQLorg": "SELECT employee_name FROM Employees WHERE role_code = 'ED';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 58,
+    "db_name": "program_share",
+    "NLQorg": "What is the origin of the program named \"Aniworld\" owned by Hunan Broadcasting System (HBS)?",
+    "NLQparap": "What programs owned by Hunan Broadcasting System (HBS) have the name \"Aniworld\" and what is their origin?",
+    "SQLorg": "SELECT Name, Origin FROM program WHERE Owner = 'Hunan Broadcasting System (HBS)';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 59,
+    "db_name": "program_share",
+    "NLQorg": "What are the names of the channels and their corresponding times of day for broadcasts on channels with a rating greater than 10%?",
+    "NLQparap": "What are the names of the channels and their corresponding times of day for the broadcasts that occur on channels with a rating higher than 10 percent?",
+    "SQLorg": "SELECT channel.Name, broadcast.Time_of_day FROM channel JOIN broadcast ON channel.Channel_ID = broadcast.Channel_ID WHERE channel.Rating_in_percent > 0.10;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 60,
+    "db_name": "school_player",
+    "NLQorg": "What is the name, location, and enrollment of the Catholic school founded before 1900?",
+    "NLQparap": "What are the names, locations, and enrollments of the schools that are Catholic and were founded before the year 1900?",
+    "SQLorg": "SELECT School, Location, Enrollment FROM school WHERE Founded < 1900 AND Denomination = 'Catholic';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 61,
+    "db_name": "school_player",
+    "NLQorg": "What is the nickname of the school named \"St Aloysius' College\" that had a Class A performance of \"Skidmore-Tynan\" in the 1989-90 school year?",
+    "NLQparap": "What school with the nickname is associated with the school that has a name of \"St Aloysius' College\" and a Class A performance of \"Skidmore-Tynan\" in the school year 1989-90?",
+    "SQLorg": "SELECT s.School, sd.Nickname, sp.Class_A FROM school s JOIN school_details sd ON s.School_ID = sd.School_ID JOIN school_performance sp ON s.School_ID = sp.School_Id WHERE sp.School_Year = '1989-90' AND sp.Class_A = 'Skidmore-Tynan';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 62,
+    "db_name": "aircraft",
+    "NLQorg": "Which pilots are older than 30, and what are their ages?",
+    "NLQparap": "What are the ages of each pilot who is over the age of thirty?",
+    "SQLorg": "SELECT Name, Age FROM pilot WHERE Age > 30;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 63,
+    "db_name": "aircraft",
+    "NLQorg": "Which airports have more than 500,000 international passengers, and what are their total passenger numbers?",
+    "NLQparap": "What airports have a significant international passenger volume exceeding 500,000, and what are their overall passenger totals?",
+    "SQLorg": "SELECT Airport_Name, Total_Passengers FROM airport WHERE International_Passengers > 500000;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 64,
+    "db_name": "chinook_1",
+    "NLQorg": "What are the titles of the albums by the artist with ID 1?",
+    "NLQparap": "What albums does the artist with the ID of 1 have?",
+    "SQLorg": "SELECT Title FROM Album WHERE ArtistId = 1;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 65,
+    "db_name": "chinook_1",
+    "NLQorg": "What are the first and last names of customers from the USA?",
+    "NLQparap": "What are the full names of all customers residing in the United States?",
+    "SQLorg": "SELECT FirstName, LastName FROM Customer WHERE Country = 'USA';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 66,
+    "db_name": "journal_committee",
+    "NLQorg": "What were the sales for the journal with the theme \"Miami Dolphins\" on September 9, 2001?",
+    "NLQparap": "What are the sales figures for the journal that had the theme \"Miami Dolphins\" on the date September 9, 2001?",
+    "SQLorg": "SELECT * FROM journal WHERE Theme = 'Miami Dolphins';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 67,
+    "db_name": "journal_committee",
+    "NLQorg": "Who are the editors older than 30?",
+    "NLQparap": "What is the list of editors whose age is greater than 30?",
+    "SQLorg": "SELECT Name FROM editor WHERE Age > 30;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 68,
+    "db_name": "party_people",
+    "NLQorg": "Which regions have the format 'CD' and what are their corresponding labels?",
+    "NLQparap": "What are the region names and labels where the format is 'CD'?",
+    "SQLorg": "SELECT Region_name, Label FROM region WHERE Format = 'CD';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 69,
+    "db_name": "party_people",
+    "NLQorg": "Which member from the party with the ID corresponding to '3' has been in office from 1996 to the present?",
+    "NLQparap": "What members are currently serving in the party with the ID of 3, who have been in office since 1996?",
+    "SQLorg": "SELECT Member_Name FROM member WHERE In_office = '1996\u2013present' AND Party_ID = (SELECT Party_ID FROM party WHERE Party_name = '3');",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 70,
+    "db_name": "products_for_hire",
+    "NLQorg": "Who are the good female customers listed in the database?",
+    "NLQparap": "What female customers in the database are classified as good customers?",
+    "SQLorg": "SELECT first_name, last_name FROM Customers WHERE good_or_bad_customer = 'good' AND gender_mf = '0';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 71,
+    "db_name": "products_for_hire",
+    "NLQorg": "What are the daily hire costs for cutlery products, and how are they ranked from highest to lowest?",
+    "NLQparap": "What are the daily hire costs of cutlery products ordered from the highest to the lowest?",
+    "SQLorg": "SELECT product_name, daily_hire_cost FROM Products_for_Hire WHERE product_type_code = 'Cutlery' ORDER BY daily_hire_cost DESC;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 72,
+    "db_name": "company_office",
+    "NLQorg": "What are the names and cities of buildings that are over 200 meters tall and currently under construction?",
+    "NLQparap": "What are the names and cities of the structures that exceed 200 meters in height and are in a state of being under construction?",
+    "SQLorg": "SELECT name, City FROM buildings WHERE Height > 200 AND Status = 'under construction';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 73,
+    "db_name": "company_office",
+    "NLQorg": "Which companies in the banking industry have a market value greater than 50 billion and are ordered by their profits in descending order?",
+    "NLQparap": "What companies in the financial sector with a market capitalization exceeding fifty billion dollars are listed in descending order by their profit?",
+    "SQLorg": "SELECT name, Industry FROM Companies WHERE Market_Value_billion > 50 ORDER BY Profits_billion DESC;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 74,
+    "db_name": "flight_2",
+    "NLQorg": "What is the name and country of the airline with the abbreviation 'USAir'?",
+    "NLQparap": "What are the airline name and country for the airline with the abbreviation 'USAir'?",
+    "SQLorg": "SELECT Airline, Country FROM airlines WHERE Abbreviation = 'USAir';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 75,
+    "db_name": "browser_web",
+    "NLQorg": "What are the names and operating systems of web client accelerators for the client 'user'?",
+    "NLQparap": "What are the names and operating systems of web client accelerators that are used by the client 'user'?",
+    "SQLorg": "SELECT name, Operating_system FROM Web_client_accelerator WHERE Client = 'user';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 76,
+    "db_name": "browser_web",
+    "NLQorg": "Which browser has a market share greater than 20%?",
+    "NLQparap": "What percentage of the market does each browser have that is higher than twenty percent?",
+    "SQLorg": "SELECT name FROM browser WHERE market_share > 20;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 77,
+    "db_name": "restaurant_1",
+    "NLQorg": "What are the details of students who have a major code of 600?",
+    "NLQparap": "What are the specifics of the students whose major is identified by the code 600?",
+    "SQLorg": "SELECT * FROM Student WHERE Major = 600;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 78,
+    "db_name": "restaurant_1",
+    "NLQorg": "Which restaurant has a rating of 4?",
+    "NLQparap": "What establishments have a rating of 4?",
+    "SQLorg": "SELECT ResName FROM Restaurant WHERE Rating = 4;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 79,
+    "db_name": "flight_company",
+    "NLQorg": "What is the name, city, and country of the airport with the IATA code 'AMS'?",
+    "NLQparap": "What are the city and country of the airport with the specific IATA code 'AMS', along with its name?",
+    "SQLorg": "SELECT name, City, Country FROM airport WHERE IATA = 'AMS';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 80,
+    "db_name": "flight_company",
+    "NLQorg": "What are the names and types of companies incorporated in China?",
+    "NLQparap": "What are the types and names of companies that were incorporated in China?",
+    "SQLorg": "SELECT name, Type FROM operate_company WHERE Incorporated_in = 'China';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 81,
+    "db_name": "network_1",
+    "NLQorg": "Which students are in the 10th grade?",
+    "NLQparap": "What high school students are currently in the tenth grade?",
+    "SQLorg": "SELECT name FROM Highschooler WHERE grade = 10;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 82,
+    "db_name": "network_1",
+    "NLQorg": "Which high schoolers are friends with the student who has the ID 1510?",
+    "NLQparap": "What high schoolers are connected to the student with the ID of 1510 through friendships?",
+    "SQLorg": "SELECT name FROM Highschooler WHERE ID IN (SELECT friend_id FROM Friend WHERE student_id = 1510);",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": false,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": false,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 83,
+    "db_name": "wine_1",
+    "NLQorg": "What are the names of the grape varieties that are red in color?",
+    "NLQparap": "What are the grape varieties that have a color of red?",
+    "SQLorg": "SELECT Grape, Color FROM grapes WHERE Color = 'Red';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 84,
+    "db_name": "wine_1",
+    "NLQorg": "What are the names of the appellations in California that are designated as American Viticultural Areas (AVA)?",
+    "NLQparap": "What are the names of the Appelation in the wine_1 database where the State is California and the isAVA is true?",
+    "SQLorg": "SELECT Appelation, State FROM appellations WHERE isAVA = 'Yes';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 85,
+    "db_name": "employee_hire_evaluation",
+    "NLQorg": "What are the names and ages of employees who live in Bristol?",
+    "NLQparap": "What are the names and ages of the individuals who reside in Bristol?",
+    "SQLorg": "SELECT Name, Age FROM employee WHERE City = 'Bristol';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 86,
+    "db_name": "employee_hire_evaluation",
+    "NLQorg": "Which shop in the Tehtaan kentt\u00e4 district has more than 100 products?",
+    "NLQparap": "What locations are in the Tehtaan kentt\u00e4 district and have more than 100 products?",
+    "SQLorg": "SELECT Shop_ID, Name FROM shop WHERE District = 'Tehtaan kentt\u00e4' AND Number_products > 100;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 87,
+    "db_name": "world_1",
+    "NLQorg": "What are the names and populations of cities in the USA with a population greater than 1,000,000?",
+    "NLQparap": "What are the city names and populations of cities in the United States with a population exceeding one million?",
+    "SQLorg": "SELECT Name, Population FROM city WHERE CountryCode = 'USA' AND Population > 1000000;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": false,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 88,
+    "db_name": "world_1",
+    "NLQorg": "Which countries have a life expectancy greater than 75, and what continents are they located on?",
+    "NLQparap": "What continents do countries with a life expectancy above 75 belong to?",
+    "SQLorg": "SELECT Name, Continent FROM country WHERE LifeExpectancy > 75 ORDER BY GNP DESC;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": true
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 89,
+    "db_name": "concert_singer",
+    "NLQorg": "What is the name and capacity of the stadium located at Raith Rovers?",
+    "NLQparap": "What are the name and capacity of the stadium situated at Raith Rovers?",
+    "SQLorg": "SELECT Name, Capacity FROM stadium WHERE Location = 'Raith Rovers';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 90,
+    "db_name": "concert_singer",
+    "NLQorg": "What was the name and year of the concert held in stadium ID 1 with the theme 'Free choice'?",
+    "NLQparap": "What are the concert name and year for the event held at the stadium with ID 1 that had the theme of 'Free choice'?",
+    "SQLorg": "SELECT concert_Name, Year FROM concert WHERE Stadium_ID = 1 AND Theme = 'Free choice';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 91,
+    "db_name": "museum_visit",
+    "NLQorg": "Which museums were opened in or before the year 2000?",
+    "NLQparap": "What museums were established prior to or in the year 2000?",
+    "SQLorg": "SELECT Name FROM museum WHERE Open_Year <= 2000;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 92,
+    "db_name": "museum_visit",
+    "NLQorg": "What is the name of the visitor with a level of membership of 8?",
+    "NLQparap": "What are the names of visitors who have a level of membership equal to 8?",
+    "SQLorg": "SELECT Name FROM visitor WHERE Level_of_membership = '8';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 93,
+    "db_name": "student_assessment",
+    "NLQorg": "What are the first names, last names, and email addresses of people whose email addresses end with \"@example.com\"?",
+    "NLQparap": "What are the first names, last names, and email addresses of individuals whose email addresses terminate with \"@example.com\"?",
+    "SQLorg": "SELECT first_name, last_name, email_address FROM People WHERE email_address LIKE '%@example.com';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 94,
+    "db_name": "student_assessment",
+    "NLQorg": "What courses is the student with ID 121 registered for?",
+    "NLQparap": "What are the courses that a student with the student ID of 121 has enrolled in?",
+    "SQLorg": "SELECT course_name FROM Courses WHERE course_id IN (SELECT course_id FROM Student_Course_Registrations WHERE student_id = 121);",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 95,
+    "db_name": "orchestra",
+    "NLQorg": "What is the name and nationality of the conductor who is over 50 years old?",
+    "NLQparap": "What are the names and nationalities of each conductor who is older than 50 years?",
+    "SQLorg": "SELECT Name, Nationality FROM conductor WHERE Age > 50;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 96,
+    "db_name": "orchestra",
+    "NLQorg": "Which orchestra, founded in 2009, has a major record format of CD/LP?",
+    "NLQparap": "What are the names of the orchestras that were established in the year 2009 and primarily produce records in the format of CD/LP?",
+    "SQLorg": "SELECT Orchestra, Year_of_Founded FROM orchestra WHERE Major_Record_Format = 'CD / LP';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 97,
+    "db_name": "wedding",
+    "NLQorg": "What are the names of people from the United States who are older than 30?",
+    "NLQparap": "What are the names of individuals from the United States who are over the age of thirty?",
+    "SQLorg": "SELECT Name FROM people WHERE Country = 'United States' AND Age > 30;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 98,
+    "db_name": "architecture",
+    "NLQorg": "Which American architect is named Frank Lloyd Wright?",
+    "NLQparap": "What is the nationality of the architect named Frank Lloyd Wright?",
+    "SQLorg": "SELECT name FROM architect WHERE nationality = 'American';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 99,
+    "db_name": "architecture",
+    "NLQorg": "What are the names and lengths in meters of the bridges located in Guangxi, China?",
+    "NLQparap": "What are the names and lengths in meters of bridges situated in Guangxi, China?",
+    "SQLorg": "SELECT name, length_meters FROM bridge WHERE location = 'Guangxi , China';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 100,
+    "db_name": "college_1",
+    "NLQorg": "What are the class codes and sections for classes held in room BUS311?",
+    "NLQparap": "What are the class codes and sections for classes that take place in the BUS311 classroom?",
+    "SQLorg": "SELECT CLASS_CODE, CLASS_SECTION FROM CLASS WHERE CLASS_ROOM = 'BUS311';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 101,
+    "db_name": "college_1",
+    "NLQorg": "Who are the employees with the job code 'PROF'?",
+    "NLQparap": "What are the employees whose job code is 'PROF'?",
+    "SQLorg": "SELECT EMP_LNAME, EMP_FNAME FROM EMPLOYEE WHERE EMP_JOBCODE = 'PROF';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 102,
+    "db_name": "local_govt_mdm",
+    "NLQorg": "What are the master customer IDs and their corresponding details for customers in the 'Rent' source system?",
+    "NLQparap": "What are the master customer IDs and their associated details for customers that are linked to the 'Rent' source system?",
+    "SQLorg": "SELECT cmi.master_customer_id, cmi.cmi_details FROM Customer_Master_Index cmi JOIN CMI_Cross_References cr ON cmi.master_customer_id = cr.master_customer_id WHERE cr.source_system_code = 'Rent';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 103,
+    "db_name": "local_govt_mdm",
+    "NLQorg": "What is the business rates ID for the master customer with ID 1?",
+    "NLQparap": "What are the business rates IDs associated with the master customer having the master customer ID of 1?",
+    "SQLorg": "SELECT br.business_rates_id FROM Business_Rates br JOIN CMI_Cross_References cr ON br.cmi_cross_ref_id = cr.cmi_cross_ref_id WHERE cr.master_customer_id = 1;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 104,
+    "db_name": "phone_market",
+    "NLQorg": "What are the names and prices of phones available from the carrier Sprint?",
+    "NLQparap": "What are the names and prices of the phones that are offered by the carrier Sprint?",
+    "SQLorg": "SELECT Name, Price FROM phone WHERE Carrier = 'Sprint';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 105,
+    "db_name": "phone_market",
+    "NLQorg": "Which markets have more than 10 shops, and what are their corresponding districts?",
+    "NLQparap": "What are the districts of the markets that have a number of shops greater than 10?",
+    "SQLorg": "SELECT Market_ID, District FROM market WHERE Num_of_shops > 10;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 106,
+    "db_name": "department_management",
+    "NLQorg": "Which departments have a budget greater than 10 billion dollars, and what are their respective budgets?",
+    "NLQparap": "What are the budgets of the departments that have a budget exceeding ten billion dollars?",
+    "SQLorg": "SELECT Name, Budget_in_Billions FROM department WHERE Budget_in_Billions > 10;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 107,
+    "db_name": "department_management",
+    "NLQorg": "What are the names and ages of individuals from the \"head\" table who were born in California?",
+    "NLQparap": "What are the names and birth states of individuals from the head table where the birth state is California, and what are their corresponding ages?",
+    "SQLorg": "SELECT name, age FROM head WHERE born_state = 'California';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 108,
+    "db_name": "assets_maintenance",
+    "NLQorg": "What are the names and addresses of the companies that are classified as suppliers?",
+    "NLQparap": "What are the company names and addresses of the companies that are categorized as suppliers?",
+    "SQLorg": "SELECT company_name, company_address FROM Third_Party_Companies WHERE company_type = 'Supplier';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 109,
+    "db_name": "assets_maintenance",
+    "NLQorg": "What are the asset IDs, makes, and models of assets acquired after January 1, 2017?",
+    "NLQparap": "What are the asset IDs, makes, and models of the assets that were acquired on or after January 1, 2017?",
+    "SQLorg": "SELECT asset_id, asset_make, asset_model FROM Assets WHERE asset_acquired_date > '2017-01-01';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 110,
+    "db_name": "tracking_software_problems",
+    "NLQorg": "What are the first and last names of the staff member with the staff ID of 1?",
+    "NLQparap": "What are the names of the staff member with a staff ID of 1?",
+    "SQLorg": "SELECT staff_first_name, staff_last_name FROM Staff WHERE staff_id = 1;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 111,
+    "db_name": "dog_kennels",
+    "NLQorg": "What is the first name, last name, and email address of the owner who lives in Lake Tia?",
+    "NLQparap": "What are the first name, last name, and email address of the owner who resides in the city of Lake Tia?",
+    "SQLorg": "SELECT first_name, last_name, email_address FROM Owners WHERE city = 'Lake Tia';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 112,
+    "db_name": "dog_kennels",
+    "NLQorg": "What are the names, ages, and genders of the large-sized dogs with the breed code 'BUL'?",
+    "NLQparap": "What are the names, ages, and genders of the dogs that are classified as large in size and have a breed code of 'BUL'?",
+    "SQLorg": "SELECT name, age, gender FROM Dogs WHERE breed_code = 'BUL' AND size_code = 'LGE';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 113,
+    "db_name": "cre_Doc_Template_Mgt",
+    "NLQorg": "What are the Template_IDs and their corresponding Template_Details for templates with a Template_Type_Code of 'PP'?",
+    "NLQparap": "What are the Template_IDs and their corresponding Template_Details for templates that have a Template_Type_Code of 'PP'?",
+    "SQLorg": "SELECT Template_ID, Template_Details FROM Templates WHERE Template_Type_Code = 'PP';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 114,
+    "db_name": "cre_Doc_Template_Mgt",
+    "NLQorg": "What is the description of the document named \"Summer Show\" with a template ID of 6?",
+    "NLQparap": "What are the descriptions of the documents that have a name of \"Summer Show\" and are associated with a template ID of 6?",
+    "SQLorg": "SELECT Document_Name, Document_Description FROM Documents WHERE Template_ID = 6;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 115,
+    "db_name": "baseball_1",
+    "NLQorg": "Which player won the Pitching Triple Crown award in the National League in 1877?",
+    "NLQparap": "What player earned the Pitching Triple Crown award in the National League during the year 1877?",
+    "SQLorg": "SELECT player_id, year, award_id FROM player_award WHERE league_id = 'NL' AND year = 1877;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 116,
+    "db_name": "baseball_1",
+    "NLQorg": "Which players hit at least one home run in the year 1871, and how many games did each of them play for their respective teams?",
+    "NLQparap": "What is the total number of games each player participated in for the year 1871, who hit at least one home run in that year?",
+    "SQLorg": "SELECT player_id, team_id, g FROM batting WHERE hr > 0 AND year = 1871;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 117,
+    "db_name": "shop_membership",
+    "NLQorg": "What are the names and hometowns of members who are at level 6?",
+    "NLQparap": "What are the names and hometowns of the members with a level of six?",
+    "SQLorg": "SELECT Name, Hometown FROM member WHERE Level = 6;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 118,
+    "db_name": "shop_membership",
+    "NLQorg": "What are the names and cities of branches that had memberships registered in the year 2016?",
+    "NLQparap": "What are the branch names and cities where members registered for membership in the year 2016?",
+    "SQLorg": "SELECT branch.Name, branch.City FROM branch JOIN membership_register_branch ON branch.Branch_ID = membership_register_branch.Branch_ID WHERE membership_register_branch.Register_Year = 2016;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 119,
+    "db_name": "match_season",
+    "NLQorg": "What is the capital of the country where the official native language is Bahasa Indonesia?",
+    "NLQparap": "What are the capitals of the countries whose official native languages are Bahasa Indonesia?",
+    "SQLorg": "SELECT Country_name, Capital FROM country WHERE Official_native_language = 'Bahasa Indonesia';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 120,
+    "db_name": "match_season",
+    "NLQorg": "What is the name of the team with a Team_id of 1?",
+    "NLQparap": "What are the names of the teams that have a Team_id of 1?",
+    "SQLorg": "SELECT Name FROM team WHERE Team_id = 1;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 121,
+    "db_name": "debate",
+    "NLQorg": "What is the name and party affiliation of the person representing New York 1 district?",
+    "NLQparap": "What are the names and party affiliations of individuals from New York 1 district?",
+    "SQLorg": "SELECT Name, Party FROM people WHERE District = 'New York 1';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 122,
+    "db_name": "debate",
+    "NLQorg": "What are the venues and dates of debates that had more than 100 audience members?",
+    "NLQparap": "What are the venues and dates of debates that attracted over one hundred attendees?",
+    "SQLorg": "SELECT Venue, Date FROM debate WHERE Num_of_Audience > 100;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 123,
+    "db_name": "tracking_grants_for_research",
+    "NLQorg": "What are the document IDs and their descriptions for the documents associated with grant ID 5?",
+    "NLQparap": "What are the document IDs and their corresponding descriptions for the documents linked to the grant with ID 5?",
+    "SQLorg": "SELECT document_id, document_description FROM Documents JOIN Document_Types ON Documents.document_type_code = Document_Types.document_type_code WHERE grant_id = 5;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 124,
+    "db_name": "tracking_grants_for_research",
+    "NLQorg": "What are the organisation IDs and their details for organisations of type 'RES'?",
+    "NLQparap": "What are the organisation IDs and their corresponding details for organisations classified as 'RES'?",
+    "SQLorg": "SELECT organisation_id, organisation_details FROM Organisations WHERE organisation_type = 'RES';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 125,
+    "db_name": "student_transcripts_tracking",
+    "NLQorg": "What is the first name, last name, and email address of the student whose current address ID is 10?",
+    "NLQparap": "What are the first name, last name, and email address of the student whose current residence is associated with the address ID of 10?",
+    "SQLorg": "SELECT first_name, last_name, email_address FROM Students WHERE current_address_id = 10;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 126,
+    "db_name": "student_transcripts_tracking",
+    "NLQorg": "What is the name of the course that has a section named 'b'?",
+    "NLQparap": "What are the course names of the courses that have a section with the name 'b'?",
+    "SQLorg": "SELECT course_name FROM Courses WHERE course_id IN (SELECT course_id FROM Sections WHERE section_name = 'b')",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 127,
+    "db_name": "local_govt_and_lot",
+    "NLQorg": "What are the details of the customer with the ID 4?",
+    "NLQparap": "What are the customer details for the customer with the customer ID of 4?",
+    "SQLorg": "SELECT customer_id, customer_details FROM Customers WHERE customer_id = 4;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 128,
+    "db_name": "local_govt_and_lot",
+    "NLQorg": "What are the property IDs and addresses of the apartments?",
+    "NLQparap": "What are the property IDs and addresses of the properties that are classified as apartments?",
+    "SQLorg": "SELECT property_id, property_address FROM Properties WHERE property_type_code = 'apartment';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 129,
+    "db_name": "sports_competition",
+    "NLQorg": "Which clubs that started after the year 2000 are located in the USA, China, Japan, and Brazil?",
+    "NLQparap": "What clubs are situated in the USA, China, Japan, and Brazil and began their operations after the year 2000?",
+    "SQLorg": "SELECT name, Region FROM club WHERE Start_year > 2000;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 130,
+    "db_name": "products_gen_characteristics",
+    "NLQorg": "What is the typical selling price of the product named \"peper\" in the \"Spices\" category with a color code of '2'?",
+    "NLQparap": "What are the typical selling prices of products in the \"Spices\" category with a color code of '2' and a name of \"peper\"?",
+    "SQLorg": "SELECT product_name, typical_selling_price FROM Products WHERE color_code = '2' AND product_category_code = 'Spices';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 131,
+    "db_name": "epinions_1",
+    "NLQorg": "What are the titles of items that have received a rating greater than 4 in reviews?",
+    "NLQparap": "What are the titles of items that have been rated higher than 4 in reviews?",
+    "SQLorg": "SELECT title FROM item WHERE i_id IN (SELECT i_id FROM review WHERE rating > 4);",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 132,
+    "db_name": "epinions_1",
+    "NLQorg": "Which user has a rank of 1 in the reviews?",
+    "NLQparap": "What reviews have a rank of 1 and which users are associated with those reviews?",
+    "SQLorg": "SELECT name FROM useracct WHERE u_id IN (SELECT u_id FROM review WHERE rank = 1);",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 133,
+    "db_name": "insurance_and_eClaims",
+    "NLQorg": "What are the details of policies that started after January 1, 2017, and ended before December 31, 2018, including their policy ID, customer ID, policy type, start date, and end date?",
+    "NLQparap": "What are the policy details for policies that began in 2017 and concluded in 2018, including their policy ID, customer ID, policy type, start date, and end date?",
+    "SQLorg": "SELECT * FROM Policies WHERE Start_Date > '2017-01-01' AND End_Date < '2018-12-31';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 134,
+    "db_name": "insurance_and_eClaims",
+    "NLQorg": "What are the claim header IDs and the amounts claimed for claims with a status code of 'Disputed'?",
+    "NLQparap": "What are the claim header IDs and the amounts claimed for the claims that have a claim status code of 'Disputed'?",
+    "SQLorg": "SELECT Claim_Header_ID, Amount_Claimed FROM Claim_Headers WHERE Claim_Status_Code = 'Disputed';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": false,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 135,
+    "db_name": "customer_deliveries",
+    "NLQorg": "What are the names and prices of products that cost more than 100?",
+    "NLQparap": "What are the product names and prices of the products that have a price greater than one hundred.",
+    "SQLorg": "SELECT product_name, product_price FROM Products WHERE product_price > 100;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 136,
+    "db_name": "customer_deliveries",
+    "NLQorg": "Who are the customers who became customers after January 1, 2010, and what are their email addresses?",
+    "NLQparap": "What are the email addresses of customers who joined after January 1, 2010?",
+    "SQLorg": "SELECT customer_name, customer_email FROM Customers WHERE date_became_customer > '2010-01-01';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 137,
+    "db_name": "manufacturer",
+    "NLQorg": "Which manufacturers were established before the year 2000?",
+    "NLQparap": "What companies were founded prior to the year 2000?",
+    "SQLorg": "SELECT Name FROM manufacturer WHERE Open_Year < 2000;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 138,
+    "db_name": "manufacturer",
+    "NLQorg": "What are the names and market rates of furniture items that have more than 5 components?",
+    "NLQparap": "What are the names and market rates of furniture items that contain more than five components?",
+    "SQLorg": "SELECT Name, Market_Rate FROM furniture WHERE Num_of_Component > 5;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 139,
+    "db_name": "party_host",
+    "NLQorg": "What are the details of parties held at Hemkade 48 Zaandam, including their themes, the first and last years they were held, and the number of hosts?",
+    "NLQparap": "What are the party details, including their themes, the first and last years they took place, and the number of hosts, for parties that were held at Hemkade 48 Zaandam?",
+    "SQLorg": "SELECT * FROM party WHERE Location = 'Hemkade 48 Zaandam';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 140,
+    "db_name": "party_host",
+    "NLQorg": "What are the names of hosts from the United States who are older than 30?",
+    "NLQparap": "What are the names of hosts from the United States who are over the age of thirty?",
+    "SQLorg": "SELECT Name FROM host WHERE Nationality = 'United States' AND Age > 30;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 141,
+    "db_name": "e_learning",
+    "NLQorg": "What are the names and descriptions of the courses authored by the person with author ID 8?",
+    "NLQparap": "What are the course names and descriptions written by the individual with the author ID of 8?",
+    "SQLorg": "SELECT course_name, course_description FROM Courses WHERE author_id = 8;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 142,
+    "db_name": "e_learning",
+    "NLQorg": "Who are the students who registered after January 1, 2015?",
+    "NLQparap": "What students have enrolled in courses after January 1, 2015?",
+    "SQLorg": "SELECT personal_name, family_name FROM Students WHERE date_of_registration > '2015-01-01';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 143,
+    "db_name": "customers_and_products_contacts",
+    "NLQorg": "What is the name and email of the customer who lives at 636 Chanelle Isle Apt. 846?",
+    "NLQparap": "What are the customer's name and email address for the individual residing at 636 Chanelle Isle Apt. 846?",
+    "SQLorg": "SELECT customer_name, customer_email FROM Customers WHERE customer_address = '636 Chanelle Isle Apt. 846';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 144,
+    "db_name": "customers_and_products_contacts",
+    "NLQorg": "What are the product names and their corresponding prices for hardware products?",
+    "NLQparap": "What are the product names and their respective prices for products classified as hardware?",
+    "SQLorg": "SELECT product_name, product_price FROM Products WHERE product_type_code = 'Hardware';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 145,
+    "db_name": "flight_1",
+    "NLQorg": "What are the flight numbers, origins, and destinations of flights with a price less than $500?",
+    "NLQparap": "What are the flight numbers, departure locations, and arrival locations of flights that cost less than five hundred dollars?",
+    "SQLorg": "SELECT flno, origin, destination FROM flight WHERE price < 500;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 146,
+    "db_name": "flight_1",
+    "NLQorg": "Which employees have a salary greater than 70,000?",
+    "NLQparap": "What employees are earning more than seventy thousand dollars?",
+    "SQLorg": "SELECT name FROM employee WHERE salary > 70000;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 147,
+    "db_name": "department_store",
+    "NLQorg": "Which customers have used a credit card as their payment method, and what are their email addresses?",
+    "NLQparap": "What are the email addresses of customers who have used a credit card as their payment method?",
+    "SQLorg": "SELECT customer_name, customer_email FROM Customers WHERE payment_method_code = 'Credit Card';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 148,
+    "db_name": "department_store",
+    "NLQorg": "What are the names and prices of products that are classified as clothes?",
+    "NLQparap": "What are the product names and their respective prices for products categorized as clothing items.",
+    "SQLorg": "SELECT product_name, product_price FROM Products WHERE product_type_code = 'Clothes';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 149,
+    "db_name": "entertainment_awards",
+    "NLQorg": "What are the names and locations of the festivals that took place in 2007?",
+    "NLQparap": "What are the festival names and locations for the events that occurred in the year 2007?",
+    "SQLorg": "SELECT Festival_Name, Location FROM festival_detail WHERE Year = 2007;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 150,
+    "db_name": "entertainment_awards",
+    "NLQorg": "What are the names of the artworks that are classified as \"Program Music/Variety Show\"?",
+    "NLQparap": "What are the names of the artworks that fall under the category of \"Program Music/Variety Show\"?",
+    "SQLorg": "SELECT Name FROM artwork WHERE Type = 'Program Music/Variety Show';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 151,
+    "db_name": "customers_card_transactions",
+    "NLQorg": "What is the account name for the customer with ID 6?",
+    "NLQparap": "What are the account names associated with the customer who has a customer ID of 6?",
+    "SQLorg": "SELECT account_name FROM Accounts WHERE customer_id = 6;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 152,
+    "db_name": "customers_card_transactions",
+    "NLQorg": "What are the first and last names of the customer with the email address fahey.dorian@example.com?",
+    "NLQparap": "What are the customer's first and last names for the customer with the specified email address fahey.dorian@example.com?",
+    "SQLorg": "SELECT customer_first_name, customer_last_name FROM Customers WHERE customer_email = 'fahey.dorian@example.com';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 153,
+    "db_name": "farm",
+    "NLQorg": "What is the population of the town named Grand Falls/Grand-Sault?",
+    "NLQparap": "What is the total number of residents living in the city officially known as Grand Falls/Grand-Sault?",
+    "SQLorg": "SELECT Official_Name, Population FROM city WHERE Status = 'Town' AND Population > 1000;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 154,
+    "db_name": "farm",
+    "NLQorg": "What was the theme of the farm competition held in 2013 in the city with Host_city_ID 1?",
+    "NLQparap": "What are the themes of the farm competitions that took place in the city with Host_city_ID equal to 1 in the year 2013?",
+    "SQLorg": "SELECT Year, Theme FROM farm_competition WHERE Host_city_ID = 1;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 155,
+    "db_name": "game_injury",
+    "NLQorg": "What are the names and average attendances of stadiums where the capacity percentage is greater than 75%?",
+    "NLQparap": "What are the names and average attendances of the stadiums that have a capacity utilization rate of more than 75 percent?",
+    "SQLorg": "SELECT name, Average_Attendance FROM stadium WHERE Capacity_Percentage > 75;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 156,
+    "db_name": "game_injury",
+    "NLQorg": "What were the scores of the games between Quruvchi and Pakhtakor in the 2007 League season?",
+    "NLQparap": "What were the final scores of the matches between Pakhtakor and Quruvchi in the 2007 season of the League competition?",
+    "SQLorg": "SELECT Home_team, Away_team, Score FROM game WHERE Season = '2007' AND Competition = 'League';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 157,
+    "db_name": "pilot_record",
+    "NLQorg": "What are the details of the aircraft manufactured by Gillig, including their order year, model, fleet series, powertrain, and fuel propulsion type?",
+    "NLQparap": "What aircraft models manufactured by Gillig are listed, along with their respective order year, fleet series, powertrain, and fuel propulsion type?",
+    "SQLorg": "SELECT * FROM aircraft WHERE Manufacturer = 'Gillig';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 158,
+    "db_name": "pilot_record",
+    "NLQorg": "What are the names and ranks of pilots from the United States who are older than 30?",
+    "NLQparap": "What are the pilot names and ranks of pilots who are over the age of 30 and are from the United States?",
+    "SQLorg": "SELECT Pilot_name, Rank FROM pilot WHERE Nationality = 'United States' AND Age > 30;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 159,
+    "db_name": "station_weather",
+    "NLQorg": "What is the train number and name of the train that travels from Chennai to Guruvayur?",
+    "NLQparap": "What are the train numbers and names of the trains that originate from Chennai and terminate at Guruvayur?",
+    "SQLorg": "SELECT train_number, name FROM train WHERE origin = 'Chennai' AND destination = 'Guruvayur';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 160,
+    "db_name": "station_weather",
+    "NLQorg": "What are the network names and services provided by stations in the Chiltern local authority?",
+    "NLQparap": "What stations in the Chiltern local authority offer services and what are the network names of these stations?",
+    "SQLorg": "SELECT network_name, services FROM station WHERE local_authority = 'Chiltern';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": false,
+      "mistral": true
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 161,
+    "db_name": "film_rank",
+    "NLQorg": "What is the gross revenue in dollars for the film \"ET the Extra-Terrestrial\" produced by Universal?",
+    "NLQparap": "What are the total gross revenues in dollars for the film titled \"ET the Extra-Terrestrial\" produced by the studio Universal?",
+    "SQLorg": "SELECT Title, Gross_in_dollar FROM film WHERE Studio = 'Universal';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 162,
+    "db_name": "film_rank",
+    "NLQorg": "Which countries have more than 10 cities in the market?",
+    "NLQparap": "What are the countries with a market that contains more than ten cities?",
+    "SQLorg": "SELECT Country FROM market WHERE Number_cities > 10;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 163,
+    "db_name": "dorm_1",
+    "NLQorg": "What are the details of students who have a major code of 600?",
+    "NLQparap": "What are the specifics of the students whose major is classified as 600?",
+    "SQLorg": "SELECT * FROM Student WHERE Major = 600;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 164,
+    "db_name": "dorm_1",
+    "NLQorg": "What are the names of dorms that are co-ed and have a student capacity greater than 100?",
+    "NLQparap": "What dorms are co-ed and have a capacity of more than 100 students?",
+    "SQLorg": "SELECT dorm_name FROM Dorm WHERE gender = 'X' AND student_capacity > 100;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 165,
+    "db_name": "riding_club",
+    "NLQorg": "Which female players ranked 1st, 2nd, or 3rd, and who are their sponsors?",
+    "NLQparap": "What female players hold the top three ranks and what are the names of their respective sponsors?",
+    "SQLorg": "SELECT Player_name, Sponsor_name FROM player WHERE Gender = 'F' AND Rank IN ('1st', '2nd', '3rd');",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 166,
+    "db_name": "riding_club",
+    "NLQorg": "Which clubs that started after the year 2000 are located in the USA, Korea, and France?",
+    "NLQparap": "What clubs were founded in the years following 2000 and are situated in the United States, South Korea, and France?",
+    "SQLorg": "SELECT Club_name, Region FROM club WHERE Start_year > 2000;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": true
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 167,
+    "db_name": "course_teach",
+    "NLQorg": "What is the Course ID and starting date for the Math course?",
+    "NLQparap": "What are the Course IDs and starting dates for the courses that are specifically Math?",
+    "SQLorg": "SELECT * FROM course WHERE Course = 'Math';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 168,
+    "db_name": "course_teach",
+    "NLQorg": "What is the name and age of the teacher from Blackrod Urban District?",
+    "NLQparap": "What are the names and ages of the teachers from Blackrod Urban District?",
+    "SQLorg": "SELECT Name, Age FROM teacher WHERE Hometown = 'Blackrod Urban District';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 169,
+    "db_name": "small_bank_1",
+    "NLQorg": "What is the name of the account holder with customer ID 1?",
+    "NLQparap": "What is the name of the customer with the customer ID of 1?",
+    "SQLorg": "SELECT name FROM ACCOUNTS WHERE custid = 1;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 170,
+    "db_name": "small_bank_1",
+    "NLQorg": "What is the balance in the savings account for the customer with ID 2?",
+    "NLQparap": "What is the current savings account balance for the customer with the customer ID of 2?",
+    "SQLorg": "SELECT balance FROM SAVINGS WHERE custid = 2;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 171,
+    "db_name": "tracking_share_transactions",
+    "NLQorg": "What are the details of the investor with the ID 1?",
+    "NLQparap": "What information can be found about the investor with the specific ID of 1?",
+    "SQLorg": "SELECT investor_id, Investor_details FROM Investors WHERE investor_id = 1;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 172,
+    "db_name": "tracking_share_transactions",
+    "NLQorg": "What was the amount of the transaction with ID 1 that occurred on September 16, 1988, at 19:02:51?",
+    "NLQparap": "What is the amount of the transaction with the ID of 1 that took place on September 16, 1988, at 19:02:51?",
+    "SQLorg": "SELECT transaction_id, amount_of_transaction FROM Transactions WHERE date_of_transaction = '1988-09-16 19:02:51';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 173,
+    "db_name": "theme_gallery",
+    "NLQorg": "Which artists joined before 2010, and what are their respective countries?",
+    "NLQparap": "What are the countries of the artists who joined the gallery prior to 2010?",
+    "SQLorg": "SELECT Name, Country FROM artist WHERE Year_Join < 2010;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 174,
+    "db_name": "theme_gallery",
+    "NLQorg": "What was the ticket price for the \"Santa Claus\" exhibition in 2004?",
+    "NLQparap": "What is the ticket price for the exhibition titled \"Santa Claus\" that took place in the year 2004?",
+    "SQLorg": "SELECT Theme, Ticket_Price FROM exhibition WHERE Year = 2004;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 175,
+    "db_name": "bike_1",
+    "NLQorg": "Which stations have a dock count greater than 20, and in which cities are they located?",
+    "NLQparap": "What cities have stations with a dock count exceeding 20?",
+    "SQLorg": "SELECT name, city FROM station WHERE dock_count > 20;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 176,
+    "db_name": "bike_1",
+    "NLQorg": "What are the start station names with the highest number of trips for subscribers, and how many trips were recorded for each station?",
+    "NLQparap": "What are the names of the start stations that have the most trips originating from them by subscribers, and what is the count of trips for each of these stations?",
+    "SQLorg": "SELECT start_station_name, COUNT(*) FROM trip WHERE subscription_type = 'Subscriber' GROUP BY start_station_name ORDER BY COUNT(*) DESC;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 177,
+    "db_name": "real_estate_properties",
+    "NLQorg": "What are the agreed selling prices for the properties named \"park\" and \"the cole\" that are classified as houses and have been sold?",
+    "NLQparap": "What are the agreed selling prices for the houses named \"park\" and \"the cole\" that have been sold?",
+    "SQLorg": "SELECT property_name, agreed_selling_price FROM Properties WHERE property_type_code = 'House' AND date_sold IS NOT NULL;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 178,
+    "db_name": "real_estate_properties",
+    "NLQorg": "What are the names of the amenities available?",
+    "NLQparap": "What are the names of the features that are available for properties?",
+    "SQLorg": "SELECT feature_name FROM Other_Available_Features WHERE feature_type_code = 'Amenity';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 179,
+    "db_name": "behavior_monitoring",
+    "NLQorg": "What are the first names, last names, and email addresses of students who have left the university?",
+    "NLQparap": "What are the first names, last names, and email addresses of students who have completed their time at the university?",
+    "SQLorg": "SELECT first_name, last_name, email_address FROM Students WHERE date_left_university IS NOT NULL;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 180,
+    "db_name": "behavior_monitoring",
+    "NLQorg": "What are the summaries and recommendations for behavior incidents classified as 'Violence'?",
+    "NLQparap": "What are the summaries and recommendations for behavior incidents that fall under the category of 'Violence'?",
+    "SQLorg": "SELECT incident_summary, recommendations FROM Behavior_Incident WHERE incident_type_code = (SELECT incident_type_code FROM Ref_Incident_Type WHERE incident_type_description = 'Violence');",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 181,
+    "db_name": "news_report",
+    "NLQorg": "What are the names and venues of events with attendance greater than 1000?",
+    "NLQparap": "What are the event names and venues where the attendance exceeded one thousand attendees?",
+    "SQLorg": "SELECT Name, Venue FROM event WHERE Event_Attendance > 1000;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 182,
+    "db_name": "news_report",
+    "NLQorg": "What are the names and nationalities of journalists over the age of 30?",
+    "NLQparap": "What are the names and nationalities of journalists who are older than 30 years old?",
+    "SQLorg": "SELECT Name, Nationality FROM journalist WHERE Age > 30;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 183,
+    "db_name": "device",
+    "NLQorg": "What are the details of the device with the carrier Verizon Wireless?",
+    "NLQparap": "What are the specifications of the devices that are associated with the carrier Verizon Wireless?",
+    "SQLorg": "SELECT * FROM device WHERE Carrier = 'Verizon Wireless';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 184,
+    "db_name": "device",
+    "NLQorg": "What is the name and location of the shop that opened in 2006?",
+    "NLQparap": "What are the shop names and locations of the shops that were opened in the year 2006?",
+    "SQLorg": "SELECT Shop_Name, Location FROM shop WHERE Open_Year = 2006;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 185,
+    "db_name": "flight_4",
+    "NLQorg": "What are the routes operated by airline '2B' that do not have a codeshare agreement?",
+    "NLQparap": "What are the routes that are operated by the airline with the IATA code '2B' and do not have a codeshare agreement?",
+    "SQLorg": "SELECT * FROM routes WHERE airline = '2B' AND codeshare IS NULL;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 186,
+    "db_name": "flight_4",
+    "NLQorg": "What are the names and cities of airports in the United States that have an elevation greater than 1000 feet?",
+    "NLQparap": "What are the cities and names of airports in the United States with elevations exceeding 1000 feet?",
+    "SQLorg": "SELECT name, city FROM airports WHERE country = 'United States' AND elevation > 1000;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 187,
+    "db_name": "gas_company",
+    "NLQorg": "Which companies have sales greater than 50 billion, and what are their respective sales figures in billions?",
+    "NLQparap": "What are the sales figures of companies that have annual sales exceeding 50 billion dollars?",
+    "SQLorg": "SELECT Company, Sales_billion FROM company WHERE Sales_billion > 50;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 188,
+    "db_name": "gas_company",
+    "NLQorg": "Which managers are in charge of gas stations that opened before the year 2000, and where are these stations located?",
+    "NLQparap": "What are the locations of the gas stations that were opened prior to the year 2000, and which managers are overseeing these stations?",
+    "SQLorg": "SELECT Manager_Name, Location FROM gas_station WHERE Open_Year < 2000;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 189,
+    "db_name": "movie_1",
+    "NLQorg": "What movie, directed by Victor Fleming, was released in 1939?",
+    "NLQparap": "What films were directed by Victor Fleming and came out in the year 1939?",
+    "SQLorg": "SELECT * FROM Movie WHERE year = 1939;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 190,
+    "db_name": "movie_1",
+    "NLQorg": "What is the name of the reviewer with the ID 201?",
+    "NLQparap": "What is the name of the reviewer with the specific ID of 201?",
+    "SQLorg": "SELECT name FROM Reviewer WHERE rID = 201;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 191,
+    "db_name": "activity_1",
+    "NLQorg": "What activities is the student with ID 1001 participating in?",
+    "NLQparap": "What are the activities that student 1001 is currently involved in?",
+    "SQLorg": "SELECT activity_name FROM Activity WHERE actid IN (SELECT actid FROM Participates_in WHERE stuid = 1001);",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 192,
+    "db_name": "activity_1",
+    "NLQorg": "Which students are participating in the activity with the ID 770?",
+    "NLQparap": "What students are currently enrolled in the activity with the specific ID of 770?",
+    "SQLorg": "SELECT Fname, LName FROM Student WHERE StuID IN (SELECT stuid FROM Participates_in WHERE actid = 770);",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 193,
+    "db_name": "decoration_competition",
+    "NLQorg": "What is the name of the leader of B.C. School located in Minnesota?",
+    "NLQparap": "What is the name of the leader of the college situated in Minnesota that is known as B.C. School?",
+    "SQLorg": "SELECT Name, Leader_Name FROM college WHERE College_Location = 'Minnesota';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 194,
+    "db_name": "decoration_competition",
+    "NLQorg": "Which members are associated with the Saskatchewan School?",
+    "NLQparap": "What colleges are associated with the members who are affiliated with the Saskatchewan School?",
+    "SQLorg": "SELECT member.Name FROM member JOIN college ON member.College_ID = college.College_ID WHERE college.Name = 'Saskatchewan School';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 195,
+    "db_name": "tvshow",
+    "NLQorg": "What are the names of the TV series and their country of origin for Italian-language channels that are not in high definition?",
+    "NLQparap": "What are the series names and countries of origin for TV shows broadcast on Italian-language channels that are not in high definition?",
+    "SQLorg": "SELECT series_name, Country FROM TV_Channel WHERE Language = 'Italian' AND Hight_definition_TV = 'no';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 196,
+    "db_name": "customers_and_addresses",
+    "NLQorg": "Which customers had their orders cancelled, and on what dates did these cancellations occur?",
+    "NLQparap": "What are the dates when orders from customers who had their orders cancelled were cancelled?",
+    "SQLorg": "SELECT customer_name, order_date, order_status FROM Customers INNER JOIN Customer_Orders ON Customers.customer_id = Customer_Orders.customer_id WHERE order_status = 'Cancelled';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 197,
+    "db_name": "customers_and_addresses",
+    "NLQorg": "What are the residential addresses, along with their cities and states, listed in the customer addresses?",
+    "NLQparap": "What are the residential addresses, including their respective cities and states, that are recorded in the customer addresses?",
+    "SQLorg": "SELECT address_content, city, state_province_county FROM Addresses INNER JOIN Customer_Addresses ON Addresses.address_id = Customer_Addresses.address_id WHERE Customer_Addresses.address_type = 'Residential';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 198,
+    "db_name": "election",
+    "NLQorg": "What is the population of the county with the zip code 'D21'?",
+    "NLQparap": "What are the population figures for the counties that have a zip code of 'D21'?",
+    "SQLorg": "SELECT County_name, Population FROM county WHERE Zip_code = 'D21';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 199,
+    "db_name": "election",
+    "NLQorg": "Which parties had candidates running for governor in 2002, and who were the candidates?",
+    "NLQparap": "What political parties had candidates vying for the position of governor in the year 2002, and who were those candidates?",
+    "SQLorg": "SELECT Party, Governor FROM party WHERE Year = 2002.0;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 200,
+    "db_name": "cinema",
+    "NLQorg": "What is the title and director of the film ranked 26th in the series?",
+    "NLQparap": "What are the titles and directors of the films that are ranked 26th in their respective series?",
+    "SQLorg": "SELECT Title, Directed_by FROM film WHERE Rank_in_series = 26;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 201,
+    "db_name": "cinema",
+    "NLQorg": "Which cinemas with a capacity greater than 500 are located in County Wicklow and County Clare?",
+    "NLQparap": "What cinemas have a seating capacity exceeding 500 and are situated in either County Wicklow or County Clare?",
+    "SQLorg": "SELECT Name, Location FROM cinema WHERE Capacity > 500;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 202,
+    "db_name": "customer_complaints",
+    "NLQorg": "What are the first and last names of the staff members who have a gender value of '0'?",
+    "NLQparap": "What are the names of the staff members whose gender is '0'?",
+    "SQLorg": "SELECT first_name, last_name FROM Staff WHERE gender = '0';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 203,
+    "db_name": "customer_complaints",
+    "NLQorg": "What is the name and price of the product that costs more than $100.00?",
+    "NLQparap": "What are the product name and price of the products that have a price greater than $100.00?",
+    "SQLorg": "SELECT product_name, product_price FROM Products WHERE product_price > 100.00;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 204,
+    "db_name": "allergy_1",
+    "NLQorg": "What are some examples of food allergies?",
+    "NLQparap": "What are some examples of allergies that are related to food?",
+    "SQLorg": "SELECT Allergy FROM Allergy_Type WHERE AllergyType = 'food';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 205,
+    "db_name": "allergy_1",
+    "NLQorg": "Which students have a shellfish allergy, identified by their student IDs?",
+    "NLQparap": "What student IDs are associated with a shellfish allergy?",
+    "SQLorg": "SELECT StuID FROM Has_Allergy WHERE Allergy = 'Shellfish';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": false,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 206,
+    "db_name": "insurance_policies",
+    "NLQorg": "What are the details of the customer with Customer_ID 1?",
+    "NLQparap": "What information can be found in the Customer_Details field for the customer with a Customer_ID of 1?",
+    "SQLorg": "SELECT * FROM Customers WHERE Customer_ID = 1;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 207,
+    "db_name": "insurance_policies",
+    "NLQorg": "What are the start and end dates for the car policy with Policy ID 119 for the customer with ID 1?",
+    "NLQparap": "What are the start and end dates for the car policy associated with customer ID 1 and policy ID 119?",
+    "SQLorg": "SELECT Policy_ID, Start_Date, End_Date FROM Customer_Policies WHERE Customer_ID = 1 AND Policy_Type_Code = 'Car';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 208,
+    "db_name": "cre_Theme_park",
+    "NLQorg": "What are the names of tourist attractions with an attraction type code of '2'?",
+    "NLQparap": "What are the names of the tourist attractions that belong to an attraction type with a code of '2'?",
+    "SQLorg": "SELECT Name, Description FROM Tourist_Attractions WHERE Attraction_Type_Code = '2';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 209,
+    "db_name": "cre_Theme_park",
+    "NLQorg": "What are the hotel IDs and their price ranges for 5-star hotels that allow pets?",
+    "NLQparap": "What are the hotel IDs and their corresponding price ranges for hotels that have a 5-star rating and permit pets?",
+    "SQLorg": "SELECT hotel_id, price_range FROM Hotels WHERE pets_allowed_yn = '1' AND star_rating_code = '5';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 210,
+    "db_name": "college_3",
+    "NLQorg": "What are the first and last names of students who are majoring in 600 and are older than 20?",
+    "NLQparap": "What are the full names of students who are majoring in department 600 and have an age greater than 20?",
+    "SQLorg": "SELECT Fname, LName FROM Student WHERE Major = 600 AND Age > 20;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 211,
+    "db_name": "workshop_paper",
+    "NLQorg": "What is the name and venue of the workshop that took place on August 18, 2007?",
+    "NLQparap": "What are the names and venues of the workshops that occurred on August 18, 2007?",
+    "SQLorg": "SELECT Name, Venue FROM workshop WHERE Date = 'August 18, 2007';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 212,
+    "db_name": "workshop_paper",
+    "NLQorg": "What is the score of Steve Niehaus from Notre Dame?",
+    "NLQparap": "What are the scores of submissions made by Steve Niehaus from Notre Dame?",
+    "SQLorg": "SELECT Author, Scores FROM submission WHERE College = 'Notre Dame';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 213,
+    "db_name": "coffee_shop",
+    "NLQorg": "What are the addresses of shops with a score greater than 8 that opened before 2015?",
+    "NLQparap": "What are the addresses of the shops that have a score higher than 8 and were established prior to 2015?",
+    "SQLorg": "SELECT Shop_ID, Address FROM shop WHERE Score > 8 AND Open_Year < 2015;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 214,
+    "db_name": "coffee_shop",
+    "NLQorg": "What are the names and levels of membership of members who are older than 30 and have an address in Hartford?",
+    "NLQparap": "What are the names and membership levels of members who are over the age of 30 and reside in Hartford?",
+    "SQLorg": "SELECT Name, Level_of_membership FROM member WHERE Age > 30 AND Address LIKE '%Hartford%';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 215,
+    "db_name": "cre_Docs_and_Epenses",
+    "NLQorg": "What are the names and descriptions of documents with the type code 'CV'?",
+    "NLQparap": "What are the document names and descriptions for documents that belong to the type with the code 'CV'?",
+    "SQLorg": "SELECT Document_Name, Document_Description FROM Documents WHERE Document_Type_Code = 'CV';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 216,
+    "db_name": "apartment_rentals",
+    "NLQorg": "What is the full name and address of the apartment building managed by Emma?",
+    "NLQparap": "What are the full names and addresses of the apartment buildings that are managed by Emma?",
+    "SQLorg": "SELECT building_full_name, building_address FROM Apartment_Buildings WHERE building_manager = 'Emma';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 217,
+    "db_name": "apartment_rentals",
+    "NLQorg": "What are the first and last names of female guests born before January 1, 1990?",
+    "NLQparap": "What are the first and last names of the female guests who were born prior to January 1, 1990?",
+    "SQLorg": "SELECT guest_first_name, guest_last_name FROM Guests WHERE gender_code = 'Female' AND date_of_birth < '1990-01-01';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 218,
+    "db_name": "pets_1",
+    "NLQorg": "What are the first and last names of students who have a major with the code '600'?",
+    "NLQparap": "What are the full names of students whose major codes are specifically '600'?",
+    "SQLorg": "SELECT Fname, LName FROM Student WHERE Major = '600';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 219,
+    "db_name": "pets_1",
+    "NLQorg": "Which student has a pet with the PetID 2001?",
+    "NLQparap": "What students have a pet with the specific PetID of 2001?",
+    "SQLorg": "SELECT StuID FROM Has_Pet WHERE PetID = 2001;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 220,
+    "db_name": "school_finance",
+    "NLQorg": "What are the names and locations of schools in County 50 Marshall?",
+    "NLQparap": "What are the school names and locations for institutions situated in County 50, which is known as Marshall?",
+    "SQLorg": "SELECT School_name, Location FROM School WHERE County = '50 Marshall';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 221,
+    "db_name": "csu_1",
+    "NLQorg": "What were the campus fees for each campus in the year 1996?",
+    "NLQparap": "What are the campus fees for every campus in the year 1996?",
+    "SQLorg": "SELECT Campus, Year, CampusFee FROM csu_fees WHERE Year = 1996;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 222,
+    "db_name": "csu_1",
+    "NLQorg": "What are the campuses and disciplines where undergraduate enrollments exceeded 1000 in the year 2004?",
+    "NLQparap": "What are the campuses and disciplines that had more than 1000 undergraduate students enrolled in the year 2004?",
+    "SQLorg": "SELECT Campus, Discipline, Undergraduate FROM discipline_enrollments WHERE Year = 2004 AND Undergraduate > 1000;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 223,
+    "db_name": "customers_campaigns_ecommerce",
+    "NLQorg": "What are the names and email addresses of customers who use a credit card as their payment method?",
+    "NLQparap": "What are the customer names and email addresses of individuals who have chosen to pay with a credit card?",
+    "SQLorg": "SELECT customer_name, customer_email FROM Customers WHERE payment_method = 'Credit Card';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 224,
+    "db_name": "customers_campaigns_ecommerce",
+    "NLQorg": "What are the names of the products in the Electronics category?",
+    "NLQparap": "What are the product names that belong to the Electronics category?",
+    "SQLorg": "SELECT product_name FROM Products WHERE product_category = 'Electronics';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 225,
+    "db_name": "performance_attendance",
+    "NLQorg": "What are the names and nationalities of the members who play the violin?",
+    "NLQparap": "What are the names and nationalities of the individuals who are members of the violin section?",
+    "SQLorg": "SELECT Name, Nationality FROM member WHERE Role = 'Violin';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 226,
+    "db_name": "performance_attendance",
+    "NLQorg": "What are the dates and locations of performances where the attendance was greater than 1000?",
+    "NLQparap": "What are the dates and locations of performances that had more than 1000 attendees?",
+    "SQLorg": "SELECT Date, Location FROM performance WHERE Attendance > 1000;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 227,
+    "db_name": "cre_Doc_Tracking_DB",
+    "NLQorg": "What is the name and description of the document type with the code 'CV'?",
+    "NLQparap": "What are the document type name and description for the document type with the code 'CV'?",
+    "SQLorg": "SELECT Document_Type_Name, Document_Type_Description FROM Ref_Document_Types WHERE Document_Type_Code = 'CV';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 228,
+    "db_name": "cre_Doc_Tracking_DB",
+    "NLQorg": "Which female employees have the roles of Editor or Proof Reader?",
+    "NLQparap": "What female employees are assigned to the roles of Editor or Proof Reader?",
+    "SQLorg": "SELECT Employee_Name, Role_Name FROM Employees JOIN Roles ON Employees.Role_Code = Roles.Role_Code WHERE Gender_MFU = '1';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 229,
+    "db_name": "battle_death",
+    "NLQorg": "What are the names and dates of battles where the result was a Bulgarian victory?",
+    "NLQparap": "What battles were won by the Bulgarian commander, and what were the dates of those battles?",
+    "SQLorg": "SELECT name, date FROM battle WHERE result = 'Bulgarian victory';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": false,
+      "mistral": true
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 230,
+    "db_name": "battle_death",
+    "NLQorg": "What are the names and tonnage of ships that are of type 'Brig' and have been captured?",
+    "NLQparap": "What ships of type 'Brig' that were captured have their names and tonnage recorded?",
+    "SQLorg": "SELECT name, tonnage FROM ship WHERE ship_type = 'Brig' AND disposition_of_ship = 'Captured';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 231,
+    "db_name": "phone_1",
+    "NLQorg": "Which chip models with more than 32 MiB of RAM and no WiFi were launched in the years 2002, 2003, 2004, and 2005?",
+    "NLQparap": "What are the chip models that have a RAM of over 32 MiB and do not have WiFi, and were released in the years 2002, 2003, 2004, and 2005?",
+    "SQLorg": "SELECT Model_name, Launch_year FROM chip_model WHERE RAM_MiB > 32 AND WiFi = 'No';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 232,
+    "db_name": "phone_1",
+    "NLQorg": "What are the graphics modes and their corresponding pixel resolutions for screen modes that are of type 'Graphics' and have more than 2 hardware colours?",
+    "NLQparap": "What are the graphics modes and their corresponding pixel resolutions for screen modes that are classified as 'Graphics' and have a hardware colour count exceeding two?",
+    "SQLorg": "SELECT Graphics_mode, Pixels FROM screen_mode WHERE Type = 'Graphics' AND Hardware_colours > 2.0;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 233,
+    "db_name": "music_1",
+    "NLQorg": "Which artist prefers the genre 'tagore'?",
+    "NLQparap": "What artists have a preferred genre of 'tagore'?",
+    "SQLorg": "SELECT artist_name FROM artist WHERE preferred_genre = 'tagore';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 234,
+    "db_name": "music_1",
+    "NLQorg": "What are the file IDs and sizes of the files in MP3 format?",
+    "NLQparap": "What are the f_id and file_size values for the files where the format is MP3?",
+    "SQLorg": "SELECT f_id, file_size FROM files WHERE formats = 'mp3';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": true
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 235,
+    "db_name": "culture_company",
+    "NLQorg": "Which books in the \"Gay M/SF\" category were published in 1989, who were their authors or editors, and what were their results in the book club?",
+    "NLQparap": "What books belonging to the \"Gay M/SF\" category were published in the year 1989, and what were the names of their authors or editors along with their respective results in the book club?",
+    "SQLorg": "SELECT * FROM book_club WHERE Year = 1989 AND Category = 'Gay M/SF';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 236,
+    "db_name": "culture_company",
+    "NLQorg": "Which movies have a worldwide gross greater than 500, and who directed them?",
+    "NLQparap": "What films have a worldwide box office revenue exceeding 500 million dollars, and who were their respective directors?",
+    "SQLorg": "SELECT Title, Director FROM movie WHERE Gross_worldwide > 500;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 237,
+    "db_name": "customers_and_invoices",
+    "NLQorg": "What are the first names, last names, and email addresses of customers from the USA?",
+    "NLQparap": "What are the customer first names, customer last names, and email addresses of customers who reside in the United States?",
+    "SQLorg": "SELECT customer_first_name, customer_last_name, email_address FROM Customers WHERE country = 'USA';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 238,
+    "db_name": "customers_and_invoices",
+    "NLQorg": "What are the names and unit prices of medium-sized red products?",
+    "NLQparap": "What are the product names and unit prices of products that are medium-sized and red in color?",
+    "SQLorg": "SELECT product_name, unit_price FROM Products WHERE product_color = 'Red' AND product_size = 'Medium';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 239,
+    "db_name": "voter_1",
+    "NLQorg": "What is the state associated with the area code 201?",
+    "NLQparap": "What area code is associated with the state in the area code state table where the area code is 201?",
+    "SQLorg": "SELECT state FROM AREA_CODE_STATE WHERE area_code = 201;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 240,
+    "db_name": "voter_1",
+    "NLQorg": "What is the name of the contestant with contestant number 1?",
+    "NLQparap": "What are the names of the contestants with the contestant number equal to 1?",
+    "SQLorg": "SELECT contestant_name FROM CONTESTANTS WHERE contestant_number = 1;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 241,
+    "db_name": "soccer_2",
+    "NLQorg": "Which colleges have an enrollment of more than 10,000 students, and what states are they located in?",
+    "NLQparap": "What are the states where colleges with enrollments exceeding 10,000 students are situated?",
+    "SQLorg": "SELECT cName, state FROM College WHERE enr > 10000;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 242,
+    "db_name": "soccer_2",
+    "NLQorg": "Which players have not received a yellow card?",
+    "NLQparap": "What players do not have a yellow card associated with their records?",
+    "SQLorg": "SELECT pName FROM Player WHERE yCard = 'no';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 243,
+    "db_name": "tracking_orders",
+    "NLQorg": "What is the name of the customer with the customer ID of 1?",
+    "NLQparap": "What are the details of the customer with a customer ID of 1?",
+    "SQLorg": "SELECT customer_name FROM Customers WHERE customer_id = 1;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 244,
+    "db_name": "tracking_orders",
+    "NLQorg": "What is the status of the order placed on February 21, 2009, at 15:26:19, and what is its order ID?",
+    "NLQparap": "What are the order status and ID of the order that was placed on February 21, 2009, at 15:26:19?",
+    "SQLorg": "SELECT order_id, order_status FROM Orders WHERE date_order_placed = '2009-02-21 15:26:19';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 245,
+    "db_name": "document_management",
+    "NLQorg": "Which users have the role code 'DBA', and what are their login statuses?",
+    "NLQparap": "What users have the role code 'DBA' and what are their current login statuses?",
+    "SQLorg": "SELECT user_name, user_login FROM Users WHERE role_code = 'DBA';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 246,
+    "db_name": "document_management",
+    "NLQorg": "What are the names of the documents that have been accessed more than 100 times?",
+    "NLQparap": "What documents have been accessed over one hundred times and what are their names?",
+    "SQLorg": "SELECT document_name FROM Documents WHERE access_count > 100;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 247,
+    "db_name": "formula_1",
+    "NLQorg": "What are the names and locations of the circuits in Italy?",
+    "NLQparap": "What are the names and locations of the circuits located in Italy?",
+    "SQLorg": "SELECT name, location, country FROM circuits WHERE country = 'Italy';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 248,
+    "db_name": "formula_1",
+    "NLQorg": "Which drivers, born before January 1, 1990, have their forename, surname, and nationality listed?",
+    "NLQparap": "What are the driver details of individuals whose birthdate is prior to January 1, 1990?",
+    "SQLorg": "SELECT forename, surname, nationality FROM drivers WHERE dob < '1990-01-01';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 249,
+    "db_name": "swimming",
+    "NLQorg": "Which swimmer from France has a 100-meter time of less than 57.31 seconds?",
+    "NLQparap": "What are the details of each swimmer from France who completed the 100-meter event in under 57.31 seconds?",
+    "SQLorg": "SELECT name, Nationality FROM swimmer WHERE meter_100 < 57.31;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 250,
+    "db_name": "swimming",
+    "NLQorg": "What are the names and capacities of stadiums located in Spain?",
+    "NLQparap": "What are the names and capacities of the stadiums situated in Spain?",
+    "SQLorg": "SELECT name, Capacity FROM stadium WHERE Country = 'Spain';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 251,
+    "db_name": "music_4",
+    "NLQorg": "Which artists over the age of 30 have the famous titles \"Bergen 1996,\" \"Transmutation,\" \"Unholy Metal Way (re-release),\" and \"Antithesis of All Flesh\"?",
+    "NLQparap": "What artists are older than 30 years old and have the famous titles \"Bergen 1996,\" \"Transmutation,\" \"Unholy Metal Way (re-release),\" and \"Antithesis of All Flesh\"?",
+    "SQLorg": "SELECT Artist, Famous_Title FROM artist WHERE Age > 30;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 252,
+    "db_name": "music_4",
+    "NLQorg": "What are the songs that have been on top since January 1, 2023, and how many weeks have they each been on top?",
+    "NLQparap": "What are the songs that have been at the top of the charts since January 1, 2023, and how many weeks have they each spent at the top?",
+    "SQLorg": "SELECT Song, Weeks_on_Top FROM volume WHERE Issue_Date > '2023-01-01';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 253,
+    "db_name": "product_catalog",
+    "NLQorg": "What is the name and publication date of the catalog published by Koepp-Rutherford handmade chocolate store?",
+    "NLQparap": "What catalogs were published by Koepp-Rutherford handmade chocolate store and what are their publication dates?",
+    "SQLorg": "SELECT catalog_name, date_of_publication FROM Catalogs WHERE catalog_publisher = 'Koepp-Rutherford handmade chocolate store';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 254,
+    "db_name": "product_catalog",
+    "NLQorg": "What are the names and prices of catalog entries that cost more than 100 dollars?",
+    "NLQparap": "What are the catalog entry names and their respective prices for the entries that have a price greater than one hundred dollars.",
+    "SQLorg": "SELECT catalog_entry_name, price_in_dollars FROM Catalog_Contents WHERE price_in_dollars > 100;",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 255,
+    "db_name": "e_government",
+    "NLQorg": "What are the first and last names of the individual with the email 'amie.okuneva@example.org'?",
+    "NLQparap": "What are the individual's first and last names where the individual's email is 'amie.okuneva@example.org'?",
+    "SQLorg": "SELECT individual_first_name, individual_last_name FROM Individuals WHERE individual_email = 'amie.okuneva@example.org';",
+    "NLQorgOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": true
+  },
+  {
+    "row_id": 256,
+    "db_name": "train_station",
+    "NLQorg": "Which stations have more than 5 platforms, and what are their total passenger numbers?",
+    "NLQparap": "What are the total passenger numbers for each station that has more than five platforms?",
+    "SQLorg": "SELECT Name, Total_Passengers FROM station WHERE Number_of_Platforms > 5;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": true,
+      "qwen": true,
+      "mistral": true
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 257,
+    "db_name": "train_station",
+    "NLQorg": "What are the Train_IDs and Names of trains that have a daily service?",
+    "NLQparap": "What are the Train_IDs and Names of the trains that operate on a daily basis?",
+    "SQLorg": "SELECT Train_ID, Name FROM train WHERE Service = 'Daily';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 258,
+    "db_name": "twitter_1",
+    "NLQorg": "Who does the user with ID 7 follow?",
+    "NLQparap": "What are the users that the user with ID 7 is currently following?",
+    "SQLorg": "SELECT * FROM follows WHERE f1 = '7';",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  },
+  {
+    "row_id": 259,
+    "db_name": "twitter_1",
+    "NLQorg": "What are the most recent tweets from the user with UID '1'?",
+    "NLQparap": "What tweets does the user with the specified ID '1' have posted most recently?",
+    "SQLorg": "SELECT text FROM tweets WHERE uid = '1' ORDER BY createdate DESC;",
+    "NLQorgOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "NLQparapOutput": {
+      "llama": false,
+      "qwen": false,
+      "mistral": false
+    },
+    "final_paraphased_output": false
+  }
+]
