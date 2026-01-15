@@ -5,9 +5,10 @@
         "comment3": "Always add a white space after $Name even before the last ?",
         "comment4": "Use $EXPR for expressions like min, max, avg. Use / to separate singular/plural ",
         "comment5": "Use _ to create attribute groups, attaching words to an attribute $Name: e.g. for_all_$Gender_students in_$City, with_a_$Degree_degree. If $Name is not generated, the attached terms are not generated too",
-        "comment6": "Use __ to attach attribute groups together to maintain their order and contiguity: e.g. for_all_$Nationality_$Gender_students, of_$Type_of_pollution_pollution__of_$polluted_element__in_$Year. If $Name is not generated, the corresponding group (separated by __) is not generated too",
-        "comment7": "Use ((name)) to add that name in that place when it usually comes into an attribute group but will not appear because this attribute is not generated: e.g.: of_((students)) of_$Gender_students --> if no gender is generated: What is the number of students in...",
-        "tableName": "Number of graduations",
+        "comment6": "Use __ to attach attribute groups together to still maintain their order and contiguity if some are absent: e.g. of__$Nationality__$Gender__students, of_$Type_of_pollution_pollution__of_$polluted_element__in_$Year. If $Name is not generated, the corresponding group (separated by __) is not generated too but the other groups remain: 'of__$Nationality__$Gender__students' can generate 'of French male students', 'of French students' or 'of male students' ",
+        "comment7": "Use == to keep the surrounded term only if its two sides are present: 'in__$Quarter==of==$Year' can generate: 'in Q4', 'in 2024', or 'in Q4 of 2024' (the 'of' is only there when both quarters and year are present together); 'in__$City==,==$State' can generate: 'in Houston, Texas', 'in Texas', 'in Houston' (remove ',' if not both city and state are present) ", 
+        "comment8": "Use ((name)) to add that name in that place when you don't want a group to disappear because none of the attributes is generated: e.g.: 'of_((students)) of_$Gender_students' --> If gender is generated: 'what is the number of male students' -- If no gender is generated, the second group disappear, the default group is generated: 'What is the number of students in...'. With AB_((XYZ))_CD EF_XYZ the process uses the default group 'AB XYZ CD' if the term 'XYZ' does not appear in the first pass.",
+		"tableName": "Number of graduations",
         "rowColCodes": ["AcademicYears","Languages","UniversityLevels","Genders","LocalNationality"],
         "valueMeaning": ["number of graduations"],
         "simplifyNested": [],
@@ -365,3 +366,4 @@
         ]
     }
 ]
+
