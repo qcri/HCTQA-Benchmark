@@ -196,6 +196,27 @@ llamafactory-cli train <path to your config.yaml that should be in the main /LLa
 ```
   
 ---
+## Synthetic Question Templates
+
+### SQL Templates
+
+| ID | SQL Template |
+| :--- | :--- |
+| **Template<sub>1</sub>** | `SELECT Value FROM Data WHERE (Attr_R = Val_R)^m AND (Attr_C = Val_C)^n` |
+| **Template<sub>2</sub>** | `SELECT Value FROM Data WHERE (Attr_R IN ListVal_R)^m AND (Attr_C = Val_C)^n` |
+| **Template<sub>3</sub>** | `SELECT Value FROM Data WHERE (Attr_R = Val_R)^m AND (Attr_C IN ListVal_C)^n` |
+| **Template<sub>4</sub>** | `SELECT AGG_1(Value), AGG_2(Value) FROM Data WHERE (Attr_R = Val_R) AND (Attr_C IN ListVal_C)` |
+| **Template<sub>5</sub>** | `SELECT AGG_*(Value) FROM Data WHERE (Attr_R = Val_R)^m AND (Attr_C IN ListVal_C)^n` |
+| **Template<sub>6</sub>** | `SELECT Value FROM Data WHERE (Attr_R IN ListVal_R)^m AND (Attr_C IN ListVal_C)^n` |
+| **Template<sub>7</sub>** | `SELECT AGG_1(Value), AGG_2(Value) FROM Data WHERE (Attr_R IN ListVal_R)^m AND (Attr_C = Val_C)^n` |
+| **Template<sub>8</sub>** | `SELECT Attr_C*, AGG_1(Value), AGG_2(Value) FROM Data WHERE (Attr_R IN ListVal_R)^m AND (Attr_C IN ListVal_C)^n GROUP BY Attr_C*` |
+| **Template<sub>9</sub>** | `SELECT MIN(Value) FROM Data WHERE (Attr_R IN ListVal_R)^m AND (Attr_C = Val_C)^n GROUP BY Attr_R^1` |
+| **Template<sub>10</sub>** | `SELECT Attr_R^1, AGG_1(Value) FROM Data WHERE (Attr_R IN ListVal_R)^m AND (Attr_C = Val_C)^n GROUP BY Attr_R^1` |
+| **Template<sub>11</sub>** | `SELECT Attr_R^1, Attr_C*, AGG_1(Value) FROM Data WHERE (Attr_R IN ListVal_R)^m AND (Attr_C IN ListVal_C)^n GROUP BY Attr_R^1, Attr_C*` |
+| **Template<sub>12</sub>** | `SELECT Value FROM Data WHERE (Attr_R IN ListVal_R)^1 AND (Attr_C = Val_C)^n ORDER BY VALUE Dir LIMIT k` |
+| **Template<sub>13</sub>** | `SELECT Value FROM Data WHERE (Attr_R IN ListVal_R)^1 AND (Attr_C = Val_C)^n ORDER BY VALUE Dir` |
+| **Template<sub>14</sub>** | `SELECT Attr_R* FROM Data WHERE (Attr_C = Val_C)^n AND Value Op Num` |
+| **Template<sub>15</sub>** | `SELECT Attr_R*, Value FROM Data WHERE (Attr_{C≠C14} = Val_{C≠C14})^n AND (Attr_R* IN Result(SQL_14))` |
 
 ## **Planned Updates & Future Work**
 
