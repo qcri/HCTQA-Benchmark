@@ -2,6 +2,11 @@ Note: This repository is currently being updated.
 
 # Paper: HCT-QA: A Benchmark for Question Answering on Human-Centric Tables
 
+[![Extended Technical Report](https://img.shields.io/badge/Documentation-Technical_Report-blue?style=flat-square&logo=adobeacrobatreader)](./Extended_Technical_Report.pdf)
+
+## 📄 Extended Technical Report
+For an in-depth analysis of our methodology and experimental results, please refer to the [Extended Technical Report (PDF)](./Extended_Technical_Report.pdf).
+
 ## **Introduction**
 This repository provides a benchmark for question answering on **Human-Centric Tables (HCTs)**. HCTs are non-relational tables with complex structures, making them difficult to parse and understand. This benchmark enables the evaluation of **large language models (LLMs) and vision-language models (VLMs)** on both real-world and synthetic HCTs.
 
